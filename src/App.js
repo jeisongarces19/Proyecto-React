@@ -7,7 +7,7 @@ import "./App.css";
 export default function Cabezera() {
   return (
     <div className='Cabezera' id='Titulo'>
-      <h1>Bienvenido a COLTEC!</h1>     
+      <h1 id='Titulo'>Bienvenido a COLTEC!</h1>             
     </div>
   );
 }
@@ -15,11 +15,11 @@ export default function Cabezera() {
 /* Estas tres cosas son equivalentes para llamar componentes*/
 
 
-
 export default function App() {
   return (
     <div className='App'>
       <p><Cabezera> Llamar un componente</Cabezera></p>
+
       <header className='App-header'>
         <p>Por favor, Ingrese los datos:</p>        
       </header>

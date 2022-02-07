@@ -14,13 +14,7 @@ export default function Cabezera() {
 
 /* Estas tres cosas son equivalentes para llamar componentes*/
 
-const App2 = () => <div>Llamar un componente <Cabezera></Cabezera> </div>
 
-class App3 extends React.Cabezera{
-  render(){
-    <div>Llamar un componente <Cabezera></Cabezera> </div>
-  }
-}
 
 export default function App() {
   return (

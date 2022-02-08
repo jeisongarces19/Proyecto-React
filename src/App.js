@@ -3,7 +3,7 @@ import "./App.css";
 
 /*Todo esto de aqui es jsx o javascrit , no html */
 
-
+/*Los datos internos de los componentes se llaman estados(stade) */
 export default function Cabezera(props) {
   return (
     <div className='Cabezera' id='Titulo'>
@@ -13,11 +13,12 @@ export default function Cabezera(props) {
   );
 }
 
+
 /* Propiedades props que son para cambiar cosas a los componente*/
 
-export default function App() {
+export default function App2() {
   return (
-    <div className='App'>
+    <div className='App2'>
       <p><Cabezera texto='Bienvenido a COLTEC!' subtitulo='Ingenieria SAS'> Llamar un componente</Cabezera></p>
 
       <h3><Cabezera texto='Revision Diaria' > Llamar un componente usando un prop</Cabezera></h3>

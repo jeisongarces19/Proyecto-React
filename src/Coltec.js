@@ -1,5 +1,5 @@
 import React from "react";
-import "./COLTEC.css";
+import "./Coltec.css";
 
 /*Todo esto de aqui es jsx o javascrit , no html */
 
@@ -16,9 +16,9 @@ export default function Cabezera(props) {
 
 /* Propiedades props que son para cambiar cosas a los componente*/
 
-export default function App() {
+export default function App2() {
   return (
-    <div className='App'>
+    <div>
       <p><Cabezera texto='Bienvenido a COLTEC!' subtitulo='Ingenieria SAS'> Llamar un componente</Cabezera></p>
 
 

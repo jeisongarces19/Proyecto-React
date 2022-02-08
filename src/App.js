@@ -16,9 +16,9 @@ export default function Cabezera(props) {
 
 /* Propiedades props que son para cambiar cosas a los componente*/
 
-export default function App2() {
+export default function App() {
   return (
-    <div className='App2'>
+    <div className='App'>
       <p><Cabezera texto='Bienvenido a COLTEC!' subtitulo='Ingenieria SAS'> Llamar un componente</Cabezera></p>
 
       <h3><Cabezera texto='Revision Diaria' > Llamar un componente usando un prop</Cabezera></h3>

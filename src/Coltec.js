@@ -14,17 +14,48 @@ export default function Cabezera(props) {
 }
 
 
+class EnviarInfo extends React.Component{
+    //Los estados se manejan asi
+    state = {
+      show: true
+    }  
+    CambioEstado = () => {
+      //con el ! cambio los estados, si esta en false cmabia a true y biserversa
+      this.setState({show: !this.state.show})
+    }
+    render(){
+      if(this.state.show){
+        return (    
+          <div className='Cabezera' id='Titulo'>
+            <h1>{this.props.texto}</h1> 
+            {this.props.subtitulo}
+            
+            <button onClick={this.CambioEstado}> Cambio de estado apagar objeto funcion</button>
+          
+          </div>
+        )
+      }else{
+        return <h1>No hay elementos
+                  
+                </h1> 
+      }
+    }
+  }
+
 /* Propiedades props que son para cambiar cosas a los componente*/
 
-export default function App2() {
+export default function AppPrincipal() {
   return (
     <div>
-      <p><Cabezera texto='Bienvenido a COLTEC!' subtitulo='Ingenieria SAS'> Llamar un componente</Cabezera></p>
+      <p><EnviarInfo texto='Bienvenido a COLTEC!' subtitulo='Ingenieria SAS'> Llamar un componente</EnviarInfo></p>
 
 
       <header className='App-header'>
         <p>Por favor, Ingrese los datos:</p>        
       </header>
+
+      <button> Enviar Informacion desde AppPrincipal </button>
+
     </div>
   );
 }

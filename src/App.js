@@ -22,6 +22,18 @@ import tareas from './Tareas'
   );
 }*/
 
+/*Los objetos dejava scrit son buenos porque podemos cambiar el estilo dinamicamente*/
+//objeto de java scrit style={{background: 'red'}
+
+const BtnDelelte={
+  fontSize: '18px',
+  color: "fff"
+
+}
+
+
+
+
 /*
 class Cabezera extends React.Component{
   //Los estados se manejan asi
@@ -34,10 +46,16 @@ class Cabezera extends React.Component{
     this.setState({show: !this.state.show})
   }
   render(){
+
+    //Asi no tengo que escribir el this.props
+    const {base} = this.props;
+
+
     if(this.state.show){
       return (    
         <div className='Cabezera' id='Titulo'>
-          <h1>{this.props.texto}</h1> 
+          //objeto de java scrit style={{background: 'red'}
+          <p style={{background: 'red'}>{this.props.texto}</p> 
           {this.props.subtitulo}
           <button onClick={()=> alert('Welcome')}> Boton Alerta</button>
           <button onClick={this.CambioEstado}> Cambio de estado apagar objeto funcion</button>
@@ -72,7 +90,8 @@ export default function App() {
 
 /*SEGUNDA PARTE. APRENDER A HACER UNA APP CORRECTA*/
 
-/* UN COMPONENTE SOLO PUEDE RETORNAR UN ELEMENTO, POR ESO SE METE EN <div></div>
+/* UN COMPONENTE SOLO PUEDE RETORNAR UN ELEMENTO, POR ESO SE METE EN <div></div>*/
+
 class App extends Component{
 
 

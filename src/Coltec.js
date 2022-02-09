@@ -1,6 +1,10 @@
 import React from "react";
 import "./Coltec.css";
 
+
+//Colores para Botones
+import {Button} from '@'
+
 /*Todo esto de aqui es jsx o javascrit , no html */
 
 /*Los datos internos de los componentes se llaman estados(stade) */
@@ -17,9 +21,10 @@ class Cabezera extends React.Component{
     //Los estados se manejan asi
     state = {
       show: true
-    }
-  
+    }  
+    
     render(){
+
       if(this.state.show){
         return (    
 
@@ -67,6 +72,8 @@ class DatosRegistroCovid extends React.Component{
   state = {
     show: true
   }
+
+
   render(){
    
     if(this.props.elem==="1"){
@@ -132,17 +139,18 @@ export default function AppPrincipal() {
 
 
       </div>
-
+      
 
       <div id="Titulo">
 
-      <p><DatosRegistroCovid titulo='PREVENCIÓN COVID 19' elem="1"> Llamar un </DatosRegistroCovid></p> 
+
+      <p style={{background: 'red'}}><DatosRegistroCovid titulo='PREVENCIÓN COVID 19' elem="1"> Llamar un </DatosRegistroCovid></p> 
 
       
       <p><DatosRegistroCovid preguntas='Usted ha Presentado en la última semana, alguno de estos sintomas: Fiebre, Tos, Malestar General Dolor de cabeza, Dolor de garganta, Pérdida del Apetito, del olfato o gusto, dificultad para respirar, Dolor en el pecho. ¿ Cual? ' elem="2"> Llamar un </DatosRegistroCovid></p> 
       <input type="text"/> 
       
-      <p><DatosRegistroCovid preguntas='Usted ha sido diagnogticado como Caso Positivo, Confirmado por prueba de laboratorio para Covid 19 ?' elem="2"> Llamar un </DatosRegistroCovid></p>
+      <p ><DatosRegistroCovid preguntas='Usted ha sido diagnogticado como Caso Positivo, Confirmado por prueba de laboratorio para Covid 19 ?' elem="2"> Llamar un </DatosRegistroCovid></p>
 
       <p><DatosRegistroCovid preguntas='Ha tenido contacto estrecho en los ultimos 14 dias con un caso de infeccion respiratoria grave o un probable o confirmado caso de corona virus Covid 19?' elem="2" > Llamar un </DatosRegistroCovid></p>
 
@@ -151,7 +159,7 @@ export default function AppPrincipal() {
     </div>
 
 
-    <button> Enviar Informacion desde AppPrincipal </button>
+    <button color="primary" className="blue" id="Titulo"> Enviar Informacion desde AppPrincipal </button>
 
     </div>
 

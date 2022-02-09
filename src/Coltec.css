@@ -22,3 +22,14 @@
   
 }
 
+#imagen{
+
+  width: 250px;
+  height: 80px;
+ 
+  padding: 80px 0px;
+  border-radius: 10px;
+
+  background-image: url(https://media.cylex.com.co/companies/1113/6518/logo/logo.jpg);
+}
+

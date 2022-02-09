@@ -115,13 +115,14 @@ export default function AppPrincipal() {
     <div id="principal">
       
       <header className='App-header'>
+      <center>
+      <div id="imagen">
+      </div>
+      </center>
+
 
         <center>
         <img src="‪https://media.cylex.com.co/companies/1113/6518/logo/logo.jpg" />
-
-        <img src="‪coltec.jpeg" />
-
-
 
         <p posicion="center"><Cabezera texto='Bienvenido a COLTEC!' subtitulo='Ingenieria SAS'> Llamar un Cabezera</Cabezera></p> 
 

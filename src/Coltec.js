@@ -27,11 +27,12 @@ class Cabezera extends React.Component{
 
       if(this.state.show){
         return (    
-
-            <div className='Cabezera' id='Titulo'>            
+          <center>
+          <div className='Cabezera' id='Titulo'>            
             <h1>{this.props.texto}</h1> 
             {this.props.subtitulo}                   
           </div>
+          </center>
         )
       }else{
         return <h1>No hay elementos</h1> 
@@ -43,24 +44,27 @@ class DatosRegistroPersonal extends React.Component{
  
   render(){
    
+    //Fecha
     if(this.props.elem==="1"){
       return(       
         <div>     
           {this.props.informacion} 
+          <br></br>
           <input type="Date" />         
         </div>
       )
     }
-
+    //Otros Datos Personales
     if(this.props.elem==="2"){
       return (    
         <div>        
           {this.props.informacion}
+          <br></br>
           <input id="Titulo" type="text"/>               
         </div>
       )
     }else{
-      return <h1></h1> 
+      return <h1>No hay campos que mostrar</h1> 
     }
 
   }
@@ -76,19 +80,24 @@ class DatosRegistroCovid extends React.Component{
   render(){
    
     if(this.props.elem==="1"){
-      return(       
-        <div id="Titulo">                 
+      return(  
+        <center>     
+        <div id="Titulo">                
           <h2>{this.props.titulo}</h2>       
         </div>
+        </center>
       )
     }
 
     if(this.props.elem==="2"){
-      return (    
+      return (   
+        <center> 
         <div>        
           {this.props.preguntas}
+          <br></br>
           <input type="checkbox"/>              
         </div>
+        </center>
       )
     }else{
       return <h1></h1> 
@@ -101,20 +110,31 @@ class DatosRegistroCovid extends React.Component{
 
 export default function AppPrincipal() {
   return (
-    <div>
+
+
+    <div id="principal">
       
       <header className='App-header'>
 
-        <img src="‪C:\Users\Santiago Juri\Desktop\coltec.jpeg" />
+        <center>
+        <img src="‪https://media.cylex.com.co/companies/1113/6518/logo/logo.jpg" />
 
-        <p><Cabezera texto='Bienvenido a COLTEC!' subtitulo='Ingenieria SAS'> Llamar un Cabezera</Cabezera></p> 
+        <img src="‪coltec.jpeg" />
 
-        <p>Por favor, Ingrese los datos:</p>        
+
+
+        <p posicion="center"><Cabezera texto='Bienvenido a COLTEC!' subtitulo='Ingenieria SAS'> Llamar un Cabezera</Cabezera></p> 
+
+        <p>Por favor, Ingrese los datos:</p> 
+        </center>       
       </header>
+
+
+      <center>
 
       <div id="Titulo">
       
-        <p><DatosRegistroPersonal fechahora={Date} informacion="Fecha" elem="1">  </DatosRegistroPersonal></p> 
+        <p><DatosRegistroPersonal informacion="Fecha" elem="1">  </DatosRegistroPersonal></p> 
 
         <p><DatosRegistroPersonal informacion="Hora de entrada" elem="2"> </DatosRegistroPersonal></p> 
 
@@ -140,8 +160,11 @@ export default function AppPrincipal() {
 
       </div>
 
+      </center>
+
       <br></br>
-      
+
+      <center>
 
       <div id="Titulo">
 
@@ -156,18 +179,28 @@ export default function AppPrincipal() {
 
         <p><DatosRegistroCovid preguntas='Vive en el mismo hogar, es pareja intima, familiar o brinda atención a personas con Coronavirus Covid 19 confirmado por laboratorio, con o sin sintomas' elem="2"> Llamar un </DatosRegistroCovid></p>
 
+      </div>
+      </center>
+
+      <center>
+      <br></br>
+      <div id="Titulo">
+        <p><DatosRegistroCovid preguntas='Autorizo el Tratamiento de Datos Personales' elem="2"> </DatosRegistroCovid></p>
+
+        <button color="primary" className="blue" id="Titulo"> Enviar Informacion </button>
         
+        <br></br>
+        <br></br>
 
       </div>
 
-      <br></br>
 
 
-      <button color="primary" className="blue" id="Titulo"> Enviar Informacion desde AppPrincipal </button>
+      </center>
 
-
-
+      <center>
       <p>La Ley de Protección de Datos Personales: Reconoce y protege el derecho que tienen todas las personas a conocer, actualizar y rectificar las informaciones que se hayan recogido sobre ellas en bases de datos o archivos que sean susceptibles de tratamiento por entidades de naturaleza pública o privada.</p>
+      </center>
 
     </div>
 

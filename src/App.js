@@ -72,6 +72,7 @@ export default function App() {
 
 /*SEGUNDA PARTE. APRENDER A HACER UNA APP CORRECTA*/
 
+/* UN COMPONENTE SOLO PUEDE RETORNAR UN ELEMENTO, POR ESO SE METE EN <div></div>
 class App extends Component{
 
 

@@ -46,9 +46,8 @@ class DatosRegistroPersonal extends React.Component{
     if(this.props.elem==="1"){
       return(       
         <div>     
-          {this.props.informacion}
-          <input type="text"/> 
-
+          {this.props.informacion} 
+          <input type="Date" />         
         </div>
       )
     }
@@ -57,7 +56,7 @@ class DatosRegistroPersonal extends React.Component{
       return (    
         <div>        
           {this.props.informacion}
-          <input type="text"/>               
+          <input id="Titulo" type="text"/>               
         </div>
       )
     }else{
@@ -104,21 +103,22 @@ export default function AppPrincipal() {
   return (
     <div>
       
-      <p><Cabezera texto='Bienvenido a COLTEC!' subtitulo='Ingenieria SAS'> Llamar un Cabezera</Cabezera></p>
-
-
       <header className='App-header'>
+
+        <img src="‪C:\Users\Santiago Juri\Desktop\coltec.jpeg" />
+
+        <p><Cabezera texto='Bienvenido a COLTEC!' subtitulo='Ingenieria SAS'> Llamar un Cabezera</Cabezera></p> 
+
         <p>Por favor, Ingrese los datos:</p>        
       </header>
-
 
       <div id="Titulo">
       
         <p><DatosRegistroPersonal fechahora={Date} informacion="Fecha" elem="1">  </DatosRegistroPersonal></p> 
 
-        <p><DatosRegistroPersonal informacion="Hora de entrada" elem="1"> </DatosRegistroPersonal></p> 
+        <p><DatosRegistroPersonal informacion="Hora de entrada" elem="2"> </DatosRegistroPersonal></p> 
 
-        <p><DatosRegistroPersonal informacion="Hora de salida" elem="1"> </DatosRegistroPersonal></p> 
+        <p><DatosRegistroPersonal informacion="Hora de salida" elem="2"> </DatosRegistroPersonal></p> 
 
         <p><DatosRegistroPersonal informacion="Nombre y Apellidos" elem="2"> </DatosRegistroPersonal></p> 
 
@@ -139,27 +139,35 @@ export default function AppPrincipal() {
 
 
       </div>
+
+      <br></br>
       
 
       <div id="Titulo">
 
+        <p style={{background: 'red'}}><DatosRegistroCovid titulo='PREVENCIÓN COVID 19' elem="1"> Llamar un </DatosRegistroCovid></p> 
+        
+        <p><DatosRegistroCovid preguntas='Usted ha Presentado en la última semana, alguno de estos sintomas: Fiebre, Tos, Malestar General Dolor de cabeza, Dolor de garganta, Pérdida del Apetito, del olfato o gusto, dificultad para respirar, Dolor en el pecho. ¿ Cual? ' elem="2"> Llamar un </DatosRegistroCovid></p> 
+        <input type="text"/> 
+        
+        <p ><DatosRegistroCovid preguntas='Usted ha sido diagnogticado como Caso Positivo, Confirmado por prueba de laboratorio para Covid 19 ?' elem="2"> Llamar un </DatosRegistroCovid></p>
 
-      <p style={{background: 'red'}}><DatosRegistroCovid titulo='PREVENCIÓN COVID 19' elem="1"> Llamar un </DatosRegistroCovid></p> 
+        <p><DatosRegistroCovid preguntas='Ha tenido contacto estrecho en los ultimos 14 dias con un caso de infeccion respiratoria grave o un probable o confirmado caso de corona virus Covid 19?' elem="2" > Llamar un </DatosRegistroCovid></p>
 
-      
-      <p><DatosRegistroCovid preguntas='Usted ha Presentado en la última semana, alguno de estos sintomas: Fiebre, Tos, Malestar General Dolor de cabeza, Dolor de garganta, Pérdida del Apetito, del olfato o gusto, dificultad para respirar, Dolor en el pecho. ¿ Cual? ' elem="2"> Llamar un </DatosRegistroCovid></p> 
-      <input type="text"/> 
-      
-      <p ><DatosRegistroCovid preguntas='Usted ha sido diagnogticado como Caso Positivo, Confirmado por prueba de laboratorio para Covid 19 ?' elem="2"> Llamar un </DatosRegistroCovid></p>
+        <p><DatosRegistroCovid preguntas='Vive en el mismo hogar, es pareja intima, familiar o brinda atención a personas con Coronavirus Covid 19 confirmado por laboratorio, con o sin sintomas' elem="2"> Llamar un </DatosRegistroCovid></p>
 
-      <p><DatosRegistroCovid preguntas='Ha tenido contacto estrecho en los ultimos 14 dias con un caso de infeccion respiratoria grave o un probable o confirmado caso de corona virus Covid 19?' elem="2" > Llamar un </DatosRegistroCovid></p>
+        
 
-      <p><DatosRegistroCovid preguntas='Vive en el mismo hogar, es pareja intima, familiar o brinda atención a personas con Coronavirus Covid 19 confirmado por laboratorio, con o sin sintomas' elem="2"> Llamar un </DatosRegistroCovid></p>
+      </div>
 
-    </div>
+      <br></br>
 
 
-    <button color="primary" className="blue" id="Titulo"> Enviar Informacion desde AppPrincipal </button>
+      <button color="primary" className="blue" id="Titulo"> Enviar Informacion desde AppPrincipal </button>
+
+
+
+      <p>La Ley de Protección de Datos Personales: Reconoce y protege el derecho que tienen todas las personas a conocer, actualizar y rectificar las informaciones que se hayan recogido sobre ellas en bases de datos o archivos que sean susceptibles de tratamiento por entidades de naturaleza pública o privada.</p>
 
     </div>
 

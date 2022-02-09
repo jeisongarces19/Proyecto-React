@@ -187,7 +187,9 @@ export default function AppPrincipal() {
       <div id="Titulo">
         <p><DatosRegistroCovid preguntas='Autorizo el Tratamiento de Datos Personales' elem="2"> </DatosRegistroCovid></p>
 
-        <button color="primary" className="blue" id="Titulo"> Enviar Informacion </button>
+        <button color="primary"  id="Titulo">
+           <b>Enviar Informacion</b>
+        </button>
         
         <br></br>
         <br></br>

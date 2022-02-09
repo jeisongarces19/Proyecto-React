@@ -5,6 +5,9 @@ import "./Coltec.css";
 //Colores para Botones
 import {Button} from '@'
 
+//imagenes
+import ImgColtec from "./src/Img/coltec.jpg";
+
 /*Todo esto de aqui es jsx o javascrit , no html */
 
 /*Los datos internos de los componentes se llaman estados(stade) */
@@ -106,6 +109,23 @@ class DatosRegistroCovid extends React.Component{
   }
 }
 
+
+class ImagenesEnviar extends React.Component{
+ 
+  render(){
+   
+    //Fecha
+    
+    return(       
+      <div>     
+             
+      </div>
+    )
+    
+   
+
+  }
+}
 /* Propiedades props que son para cambiar cosas a los componente*/
 
 export default function AppPrincipal() {
@@ -115,14 +135,12 @@ export default function AppPrincipal() {
     <div id="principal">
       
       <header className='App-header'>
-      <center>
-      <div id="imagen">
-      </div>
-      </center>
+     
 
 
         <center>
-        <img src="‪https://media.cylex.com.co/companies/1113/6518/logo/logo.jpg" />
+        
+
 
         <p posicion="center"><Cabezera texto='Bienvenido a COLTEC!' subtitulo='Ingenieria SAS'> Llamar un Cabezera</Cabezera></p> 
 

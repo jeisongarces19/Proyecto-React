@@ -1,5 +1,5 @@
 import React from "react";
-import ImgColtec from './Img/coltec.jpg';
+import ImgColtec from './img/coltec.png';
 
 export defaut[
   ImgColtec

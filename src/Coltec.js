@@ -1,12 +1,8 @@
 import React from "react";
 import "./Coltec.css";
 
-
-//Colores para Botones
-import {Button} from '@'
-
 //imagenes
-import ImgColtec from "./src/Img/coltec.jpg";
+import ImgColtec from "./CargarImg.js";
 
 /*Todo esto de aqui es jsx o javascrit , no html */
 
@@ -118,7 +114,7 @@ class ImagenesEnviar extends React.Component{
     
     return(       
       <div>     
-             
+           <img src={ImgColtec[0]}></img>  
       </div>
     )
     

@@ -2,7 +2,7 @@ import React from "react";
 import "./Coltec.css";
 
 //imagenes
-import ImgColtec from "./CargarImg.js";
+import ImgColtec from "./src/img/CargarImg.js";
 
 /*Todo esto de aqui es jsx o javascrit , no html */
 
@@ -109,17 +109,11 @@ class DatosRegistroCovid extends React.Component{
 class ImagenesEnviar extends React.Component{
  
   render(){
-   
-    //Fecha
-    
     return(       
       <div>     
-           <img src={ImgColtec[0]}></img>  
+        <p id="imagen"></p>        
       </div>
     )
-    
-   
-
   }
 }
 /* Propiedades props que son para cambiar cosas a los componente*/
@@ -131,17 +125,14 @@ export default function AppPrincipal() {
     <div id="principal">
       
       <header className='App-header'>
-     
-
-
         <center>
-        
-
-
+          <p><ImagenesEnviar elem="1">  </ImagenesEnviar></p>
+             
         <p posicion="center"><Cabezera texto='Bienvenido a COLTEC!' subtitulo='Ingenieria SAS'> Llamar un Cabezera</Cabezera></p> 
 
         <p>Por favor, Ingrese los datos:</p> 
-        </center>       
+        </center> 
+
       </header>
 
 
@@ -214,6 +205,9 @@ export default function AppPrincipal() {
 
 
       </center>
+      <br></br>
+      <br></br>
+
 
       <center>
       <p>La Ley de Protección de Datos Personales: Reconoce y protege el derecho que tienen todas las personas a conocer, actualizar y rectificar las informaciones que se hayan recogido sobre ellas en bases de datos o archivos que sean susceptibles de tratamiento por entidades de naturaleza pública o privada.</p>

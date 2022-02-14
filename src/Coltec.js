@@ -94,7 +94,7 @@ class DatosRegistroCovid extends React.Component{
         <div>        
           {this.props.preguntas}
           <br></br>
-          <input type="checkbox"/>              
+          <input type="checkbox" name="Opcion1"/>              
         </div>
         </center>
       )
@@ -133,37 +133,27 @@ export default function AppPrincipal() {
         <p>Por favor, Ingrese los datos:</p> 
         </center> 
 
+
+        
+
       </header>
 
+      <form method="POST" action="index.php" id="login_form" onsubmit="return IniciarSeccion();" name="miForm"> 
+      </form>
 
       <center>
 
-      <div id="Titulo">
-      
+      <div id="Titulo">      
         <p><DatosRegistroPersonal informacion="Fecha" elem="1">  </DatosRegistroPersonal></p> 
-
         <p><DatosRegistroPersonal informacion="Hora de entrada" elem="2"> </DatosRegistroPersonal></p> 
-
         <p><DatosRegistroPersonal informacion="Hora de salida" elem="2"> </DatosRegistroPersonal></p> 
-
         <p><DatosRegistroPersonal informacion="Nombre y Apellidos" elem="2"> </DatosRegistroPersonal></p> 
-
         <p><DatosRegistroPersonal informacion="Documento de Identidad" elem="2"> </DatosRegistroPersonal></p> 
-
-        <p><DatosRegistroPersonal informacion="Dirección de Residencia" elem="2"> </DatosRegistroPersonal></p> 
-
-        <p><DatosRegistroPersonal informacion="Telefono de Contacto" elem="2"> </DatosRegistroPersonal></p> 
-
+        <p><DatosRegistroPersonal informacion="Dirección de Residencia" elem="2"> </DatosRegistroPersonal></p>         <p><DatosRegistroPersonal informacion="Telefono de Contacto" elem="2"> </DatosRegistroPersonal></p> 
         <p><DatosRegistroPersonal informacion="EPS" elem="2"> </DatosRegistroPersonal></p> 
-
         <p><DatosRegistroPersonal informacion="ARL" elem="2"> </DatosRegistroPersonal></p> 
-
         <p><DatosRegistroPersonal informacion="Motivo Visita" elem="2"> </DatosRegistroPersonal></p> 
-
         <p><DatosRegistroPersonal informacion="En caso de Emergencias Avisar a:" elem="2"> </DatosRegistroPersonal></p> 
-
-
-
       </div>
 
       </center>
@@ -214,6 +204,8 @@ export default function AppPrincipal() {
       </center>
 
     </div>
+
+    
 
     
   );

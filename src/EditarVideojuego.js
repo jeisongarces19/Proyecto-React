@@ -1,9 +1,9 @@
-
 import React from 'react';
 import Constantes from "./Constantes";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link, withRouter } from 'react-router-dom';
+
 class EditarVideojuego extends React.Component {
     constructor(props) {
         super(props);
@@ -91,9 +91,9 @@ class EditarVideojuego extends React.Component {
         this.setState(state => {
             const videojuegoActualizado = state.videojuego;
             // Si es la calificación o el nombre, necesitamos castearlo a entero
-            if (clave !== "nombre") {
-                valor = parseFloat(valor);
-            }
+            //if (clave !== "nombre") {
+            //    valor = parseFloat(valor);
+            //}
             // Actualizamos el valor del videojuego, solo en el campo que se haya cambiado
             videojuegoActualizado[clave] = valor;
             return {

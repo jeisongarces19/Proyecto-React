@@ -68,3 +68,21 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+Como se encuentra construido el Front end:
+
+App.js= opcines con Switch y llamado de ventanas con Route. se export default App;
+
+index.js= Aqui se llama a la aplicacion la cual seria App.s 
+
+Constantes.s = Aqui es donde coloco donde esta ubicada la aplicacion en cuestion del Backup- Aqui esta local y es http://localhost/api-php-react-main por php C:\xampp\htdocs\api-php-react-main
+
+Nav.js= Aqui es la navegacion manual que puede hacer el usuario. Es como el headers de la pagina. Donde decimos con un NavLink onClick a que pagina queremos ir. por el cual podemos agregar bibliografia, comentarios, soporte y ayuda, etc.  Es como el menu de la pagina. esta es responsi. 
+Tambien aqui se pone el orden de como aparece el menu.
+
+reportWebVitals.js= no tengo idea
+
+style.css =  mis estilos propios de css
+

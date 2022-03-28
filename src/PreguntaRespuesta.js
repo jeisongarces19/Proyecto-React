@@ -4,14 +4,13 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link } from 'react-router-dom';
 
-class AgregarVideojuego extends React.Component {
+class PreguntasRespuestas extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            videojuego: {
-                "nombre": "",
-                "precio": "",
-                "calificacion": "",
+            datos: {
+                "pregunta": "",
+                "respuestaP": "",
             },
         };
         // Indicarle a las funciones a quién nos referimos con "this"
@@ -21,37 +20,32 @@ class AgregarVideojuego extends React.Component {
     render() {
         return (
             <div className="column is-one-third">
-                <h1 className="is-size-3">Agregar Exposiciones</h1>
+                <h1 className="is-size-3">Preguntas y Respuestas</h1>                
+
                 <ToastContainer></ToastContainer>
                 <form className="fToastContainerield" onSubmit={this.manejarEnvioDeFormulario}>
                     <div className="form-group">
-                        <label className="label" htmlFor="nombre">Nombre:</label>
-                        <input autoFocus required placeholder="Nombre" type="text" id="nombre" onChange={this.manejarCambio} value={this.state.videojuego.nombre} className="input" />
+                        <label className="label" htmlFor="pregunta">pregunta:</label>
+                        <input autoFocus required placeholder="pregunta" type="text" id="pregunta" className="input" />
                         
                     </div>
 
                     <div className="form-group">
-                        <label className="label" htmlFor="precio">Precio:</label>
-                        <input required placeholder="Precio" type="text" id="precio" onChange={this.manejarCambio} value={this.state.videojuego.precio} className="input" />
+                        <label className="label" htmlFor="respuestaP">respuesta:</label>
+                        <input required placeholder="respuestaP" type="text" id="respuestaP" onChange={this.manejarCambio} value={this.state.datos.respuestaP} className="input" />
                     </div>
 
-                    <div className="form-group">
-                        <label className="label" htmlFor="calificacion">Calificación:</label>
-                        <input required placeholder="Calificación" type="number" id="calificacion" onChange={this.manejarCambio} value={this.state.videojuego.calificacion} className="input" />
-                    </div>
                     
                     <div className="form-group">
                         <button className="button is-success mt-2">
-                        Guardar Video juego
+                        Enviar
                         </button>
 
                         &nbsp;
-                        <Link to="/videojuegos/Login" className="button is-primary mt-2">Login</Link>
-
+                        <Link to="/MECA/Login" className="button is-primary mt-2">iniciarSesion</Link>
                     </div>
 
                     
-
 
 
                 </form>
@@ -61,14 +55,10 @@ class AgregarVideojuego extends React.Component {
     async manejarEnvioDeFormulario(evento) {
 
         evento.preventDefault();
-        // Codificar nuestro videojuego como JSON 
-        // console.log(cargaUtil);
-        // ¡Y enviarlo!
-
-        const cargaUtil = JSON.stringify(this.state.videojuego);
-        
-
-        const respuesta = await fetch(`${Constantes.RUTA_API}/guardar_videojuego.php`, 
+       
+        const cargaUtil = JSON.stringify(this.state.datos);
+      
+        const respuesta = await fetch(`${Constantes.RUTA_API}/Guardar_pregunta.php`, 
         {
             method: "POST",            
             body: cargaUtil,
@@ -79,7 +69,7 @@ class AgregarVideojuego extends React.Component {
         const exitoso = await respuesta.json();
 
         if (exitoso) {
-            toast('Videojuego guardado 🎮', {
+            toast('Usuario guardado 🎮', {
                 position: "top-left",
                 autoClose: 2000,
                 hideProgressBar: false,
@@ -89,22 +79,23 @@ class AgregarVideojuego extends React.Component {
                 progress: undefined,
             });
             this.setState({
-                videojuego: {
-                    nombre: "",
-                    precio: "",
-                    calificacion: "",
+                datos: {
+                    pregunta: "",
+                    respuestaP: "",
                 }
             });
         } else {
             toast.error("Error guardando. Intenta de nuevo");
         }
     }
+
+
     manejarCambio(evento) {
         // Extraer la clave del estado que se va a actualizar, así como el valor
         const clave = evento.target.id;
         let valor = evento.target.value;
         this.setState(state => {
-            const videojuegoActualizado = state.videojuego;
+            const videojuegoActualizado = state.datos;
             // Si es la calificación o el nombre, necesitamos castearlo a entero
             //if (clave !== "nombre") {
             //    valor = parseFloat(valor);
@@ -112,10 +103,11 @@ class AgregarVideojuego extends React.Component {
             // Actualizamos el valor del videojuego, solo en el campo que se haya cambiado
             videojuegoActualizado[clave] = valor;
             return {
-                videojuego: videojuegoActualizado,
+                datos: videojuegoActualizado,
             }
         });
     }
+    
 }
 
-export default AgregarVideojuego;
+export default PreguntasRespuestas;

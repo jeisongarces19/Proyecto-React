@@ -4,46 +4,39 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link } from 'react-router-dom';
 
-class Login extends React.Component {
+
+class MenuUsuarioExposiciones extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            videojuego: {
+            datos: {
                 "user": "",
                 "password": "",
             },
         };
         // Indicarle a las funciones a quién nos referimos con "this"
-        
         this.manejarCambio = this.manejarCambio.bind(this);
         this.manejarEnvioDeFormulario = this.manejarEnvioDeFormulario.bind(this);
     }
     render() {
         return (
             <div className="column is-one-third">
-                <h1 className="is-size-3">Iniciar Sesion</h1>                
-
+                <h1 className="is-size-3">Iniciar Sesion</h1>
                 <ToastContainer></ToastContainer>
-                <form className="fToastContainerield" onSubmit={this.manejarEnvioDeFormulario}>
+                <form className="field" onSubmit={this.manejarEnvioDeFormulario}>
                     <div className="form-group">
                         <label className="label" htmlFor="user">user:</label>
-                        <input autoFocus required placeholder="user" type="text" id="user" className="input" onChange={this.manejarCambio} value={this.state.videojuego.user}  />
+                        <input autoFocus required placeholder="user" type="text" id="user" onChange={this.manejarCambio} value={this.state.datos.user} className="input" />
                     </div>
-
                     <div className="form-group">
                         <label className="label" htmlFor="password">password:</label>
-                        <input required placeholder="password" type="text" id="password" onChange={this.manejarCambio} value={this.state.videojuego.password} className="input" />
+                        <input required placeholder="password" type="text" id="password" onChange={this.manejarCambio} value={this.state.datos.password} className="input" />
                     </div>
-                
-
                     
                     <div className="form-group">
-                        <button className="button is-success mt-2">
-                        Iniciar Sesion
-                        </button>
-
+                        <button className="button is-success mt-2">Guardar</button>
                         &nbsp;
-                        <Link to="/MECA/Registrarse" className="button is-primary mt-2">Registrarse</Link>
+                        <Link to="/datoss/ver" className="button is-primary mt-2">Volver</Link>
                     </div>
                 </form>
             </div>
@@ -51,24 +44,20 @@ class Login extends React.Component {
     }
     async manejarEnvioDeFormulario(evento) {
 
-        evento.preventDefault();       
-        const cargaUtil = JSON.stringify(this.state.videojuego);
+        evento.preventDefault();
+        // Codificar nuestro datos como JSON
 
-        console.log("aqui estas los videojuego de login");
+        const cargaUtil = JSON.stringify(this.state.datos);
+        // ¡Y enviarlo!
+        console.log("aqui estas los datos de login");
         console.log(cargaUtil);
-      
-        const respuesta = await fetch(`${Constantes.RUTA_API}/Guardar_user.php`, 
-        {
-            method: "POST",            
+        const respuesta = await fetch(`${Constantes.RUTA_API}/guardar_datos.php`, {
+            method: "POST",
             body: cargaUtil,
         });
-
-        //headers: { 'Content-Type': 'application/json' },
-
         const exitoso = await respuesta.json();
-
         if (exitoso) {
-            toast('Usuario guardado 🎮', {
+            toast('datos guardado 🎮', {
                 position: "top-left",
                 autoClose: 2000,
                 hideProgressBar: false,
@@ -78,7 +67,7 @@ class Login extends React.Component {
                 progress: undefined,
             });
             this.setState({
-                videojuego: {
+                datos: {
                     user: "",
                     password: "",
                 }
@@ -87,26 +76,23 @@ class Login extends React.Component {
             toast.error("Error guardando. Intenta de nuevo");
         }
     }
-
-
     manejarCambio(evento) {
         // Extraer la clave del estado que se va a actualizar, así como el valor
         const clave = evento.target.id;
         let valor = evento.target.value;
         this.setState(state => {
-            const videojuegoActualizado = state.videojuego;
-            // Si es la calificación o el nombre, necesitamos castearlo a entero
+            const datosActualizado = state.datos;
+            // Si es la calificación o el user, necesitamos castearlo a entero
             //if (clave !== "nombre") {
             //    valor = parseFloat(valor);
             //}
-            // Actualizamos el valor del videojuego, solo en el campo que se haya cambiado
-            videojuegoActualizado[clave] = valor;
+            // Actualizamos el valor del datos, solo en el campo que se haya cambiado
+            datosActualizado[clave] = valor;
             return {
-                videojuego: videojuegoActualizado,
+                datos: datosActualizado,
             }
         });
     }
-    
 }
 
-export default Login;
+export default MenuUsuarioExposiciones;

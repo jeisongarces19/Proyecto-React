@@ -8,13 +8,13 @@ class Registrarse extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            videojuego: {
+            datos: {
                 "nombres": "",
                 "primerAprellido": "",
                 "segundoApellido": "",
                 "fechaNacimiento": "",
                 "correo": "",
-                "clave": "",
+                "pass": "",
                 "ubicacion": "",
                 "descripcion": "",
             },
@@ -32,42 +32,42 @@ class Registrarse extends React.Component {
 
                     <div className="form-group">
                         <label className="label" htmlFor="nombres">nombres:</label>
-                        <input autoFocus required placeholder="nombres" type="text" id="nombres" onChange={this.manejarCambio} value={this.state.videojuego.nombres} className="input" />
+                        <input autoFocus required placeholder="nombres" type="text" id="nombres" onChange={this.manejarCambio} value={this.state.datos.nombres} className="input"  />
                     </div>
 
                     <div className="form-group">
                         <label className="label" htmlFor="primerAprellido">primerAprellido:</label>
-                        <input required placeholder="primerAprellido" type="number" id="primerAprellido" onChange={this.manejarCambio} value={this.state.videojuego.primerAprellido} className="input" />
+                        <input required placeholder="primerAprellido" type="text" id="primerAprellido" onChange={this.manejarCambio} value={this.state.datos.primerAprellido} className="input" />
                     </div>
 
                     <div className="form-group">
                         <label className="label" htmlFor="segundoApellido">segundoApellido:</label>
-                        <input autoFocus required placeholder="segundoApellido" type="text" id="segundoApellido" onChange={this.manejarCambio} value={this.state.videojuego.segundoApellido} className="input" />
+                        <input autoFocus required placeholder="segundoApellido" type="text" id="segundoApellido" onChange={this.manejarCambio} value={this.state.datos.segundoApellido} className="input" />
                     </div>
 
                     <div className="form-group">
                         <label className="label" htmlFor="fechaNacimiento">fechaNacimiento:</label>
-                        <input autoFocus required placeholder="fechaNacimiento" type="text" id="fechaNacimiento" onChange={this.manejarCambio} value={this.state.videojuego.fechaNacimiento} className="input" />                       
+                        <input autoFocus required placeholder="fechaNacimiento" type="date" id="fechaNacimiento" onChange={this.manejarCambio} value={this.state.datos.fechaNacimiento} className="input" />                       
                     </div>
 
                     <div className="form-group">
                         <label className="label" htmlFor="correo">correo:</label>
-                        <input autoFocus required placeholder="correo" type="text" id="correo" onChange={this.manejarCambio} value={this.state.videojuego.correo} className="input" />                        
+                        <input autoFocus required placeholder="correo" type="text" id="correo" onChange={this.manejarCambio} value={this.state.datos.correo} className="input" />                        
                     </div>
 
                     <div className="form-group">
-                        <label className="label" htmlFor="clave">clave:</label>
-                        <input required placeholder="clave" type="number" id="clave" onChange={this.manejarCambio} value={this.state.videojuego.clave} className="input" />
+                        <label className="label" htmlFor="pass">pass:</label>
+                        <input required placeholder="pass" type="text" id="pass" onChange={this.manejarCambio} value={this.state.datos.pass} className="input" />
                     </div>
 
                     <div className="form-group">
                         <label className="label" htmlFor="ubicacion">ubicacion:</label>
-                        <input required placeholder="ubicacion" type="number" id="ubicacion" onChange={this.manejarCambio} value={this.state.videojuego.ubicacion} className="input" />
+                        <input required placeholder="ubicacion" type="text" id="ubicacion" onChange={this.manejarCambio} value={this.state.datos.ubicacion}  className="input" />
                     </div>
 
                     <div className="form-group">
                         <label className="label" htmlFor="clave">descripcion:</label>
-                        <input required placeholder="descripcion" type="number" id="descripcion" onChange={this.manejarCambio} value={this.state.videojuego.descripcion} className="input" />
+                        <input required placeholder="descripcion" type="text" id="descripcion" onChange={this.manejarCambio} value={this.state.datos.descripcion} className="input" />
                     </div>
 
 
@@ -78,7 +78,7 @@ class Registrarse extends React.Component {
                         </button>
 
                         &nbsp;
-                        <Link to="/videojuegos/Login" className="button is-primary mt-2">iniciarSesion</Link>
+                        <Link to="/datoss/Login" className="button is-primary mt-2">iniciarSesion</Link>
                     </div>
 
                     
@@ -92,8 +92,10 @@ class Registrarse extends React.Component {
 
         evento.preventDefault();
        
-        const cargaUtil = JSON.stringify(this.state.videojuego);
-        
+        const cargaUtil = JSON.stringify(this.state.datos);
+        console.log("aqui estas los datos de login");
+        console.log(cargaUtil);
+   
 
         const respuesta = await fetch(`${Constantes.RUTA_API}/Guardar_user.php`, 
         {
@@ -116,13 +118,13 @@ class Registrarse extends React.Component {
                 progress: undefined,
             });
             this.setState({
-                videojuego: {
+                datos: {
                     nombres: "",
                     primerAprellido: "",
                     segundoAprellido: "",
                     fechaNacimiento: "",
                     correo: "",
-                    clave: "",
+                    pass: "",
                     ubicacion: "",
                     descripcion: "",
                 }
@@ -136,18 +138,19 @@ class Registrarse extends React.Component {
         const clave = evento.target.id;
         let valor = evento.target.value;
         this.setState(state => {
-            const videojuegoActualizado = state.videojuego;
-            // Si es la calificación o el correo, necesitamos castearlo a entero
-            if (clave !== "correo") {
-                valor = parseFloat(valor);
-            }
-            // Actualizamos el valor del videojuego, solo en el campo que se haya cambiado
+            const videojuegoActualizado = state.datos;
+            // Si es la calificación o el nombres, necesitamos castearlo a entero
+            //if (clave !== "nombre") {
+            //    valor = parseFloat(valor);
+            //}
+            // Actualizamos el valor del datos, solo en el campo que se haya cambiado
             videojuegoActualizado[clave] = valor;
             return {
-                videojuego: videojuegoActualizado,
+                datos: videojuegoActualizado,
             }
         });
     }
+    
 }
 
 export default Registrarse;

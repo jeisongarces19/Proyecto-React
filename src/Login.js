@@ -8,8 +8,8 @@ class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            videojuego: {
-                "user": "",
+            dates: {
+                "email": "",
                 "password": "",
             },
         };
@@ -20,44 +20,62 @@ class Login extends React.Component {
     }
     render() {
         return (
-            <div className="column is-one-third">
-                <h1 className="is-size-3">Iniciar Sesion</h1>                
 
-                <ToastContainer></ToastContainer>
-                <form className="fToastContainerield" onSubmit={this.manejarEnvioDeFormulario}>
-                    <div className="form-group">
-                        <label className="label" htmlFor="user">user:</label>
-                        <input autoFocus required placeholder="user" type="text" id="user" className="input" onChange={this.manejarCambio} value={this.state.videojuego.user}  />
-                    </div>
 
-                    <div className="form-group">
-                        <label className="label" htmlFor="password">password:</label>
-                        <input required placeholder="password" type="text" id="password" onChange={this.manejarCambio} value={this.state.videojuego.password} className="input" />
-                    </div>
-                
+            <div className="columns">
 
+
+
+                <div className="column ">
+                    Aqui va ir el asistente virtual
+                                       
                     
-                    <div className="form-group">
-                        <button className="button is-success mt-2">
-                        Iniciar Sesion
-                        </button>
+                </div>
 
-                        &nbsp;
-                        <Link to="/MECA/Registrarse" className="button is-primary mt-2">Registrarse</Link>
-                    </div>
-                </form>
+
+                <div className="column is-half is-offset-one-quarter" >
+
+                    <h1 className="is-size-1">Iniciar Sesion</h1>                
+
+                    <ToastContainer></ToastContainer>
+                    <form className="fToastContainerield" onSubmit={this.manejarEnvioDeFormulario}>
+                        <div className="form-group">
+                            <label className="label" htmlFor="email">email:</label>
+                            <input autoFocus required placeholder="email" type="text" id="email" className="input" onChange={this.manejarCambio} value={this.state.dates.user}  />
+                        </div>
+
+                        <div className="form-group">
+                            <label className="label" htmlFor="password">password:</label>
+                            <input required placeholder="password" type="text" id="password" onChange={this.manejarCambio} value={this.state.dates.password} className="input" />
+                        </div>
+                    
+
+                        
+                        <div className="form-group">
+                            <button className="button is-success mt-2">
+                            Iniciar Sesion
+                            </button>
+
+                            &nbsp;
+                            <Link to="/MECA/Registrarse" className="button is-primary mt-2">Registrarse</Link>
+                        </div>
+                    </form>
+
+                </div>
+
+
             </div>
         );
     }
     async manejarEnvioDeFormulario(evento) {
 
         evento.preventDefault();       
-        const cargaUtil = JSON.stringify(this.state.videojuego);
+        const cargaUtil = JSON.stringify(this.state.dates);
 
-        console.log("aqui estas los videojuego de login");
+        console.log("aqui estas los dates de login");
         console.log(cargaUtil);
       
-        const respuesta = await fetch(`${Constantes.RUTA_API}/Guardar_user.php`, 
+        const respuesta = await fetch(`${Constantes.RUTA_API}/Users`, 
         {
             method: "POST",            
             body: cargaUtil,
@@ -78,8 +96,8 @@ class Login extends React.Component {
                 progress: undefined,
             });
             this.setState({
-                videojuego: {
-                    user: "",
+                dates: {
+                    email: "",
                     password: "",
                 }
             });
@@ -94,15 +112,15 @@ class Login extends React.Component {
         const clave = evento.target.id;
         let valor = evento.target.value;
         this.setState(state => {
-            const videojuegoActualizado = state.videojuego;
+            const datesActualizado = state.dates;
             // Si es la calificación o el nombre, necesitamos castearlo a entero
             //if (clave !== "nombre") {
             //    valor = parseFloat(valor);
             //}
-            // Actualizamos el valor del videojuego, solo en el campo que se haya cambiado
-            videojuegoActualizado[clave] = valor;
+            // Actualizamos el valor del dates, solo en el campo que se haya cambiado
+            datesActualizado[clave] = valor;
             return {
-                videojuego: videojuegoActualizado,
+                dates: datesActualizado,
             }
         });
     }

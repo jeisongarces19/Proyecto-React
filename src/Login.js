@@ -72,7 +72,7 @@ class Login extends React.Component {
         evento.preventDefault();       
         const cargaUtil = JSON.stringify(this.state.dates);
 
-        console.log("aqui estas los dates de login");
+        console.log("aqui esta lo que envio");
         console.log(cargaUtil);
       
         const respuesta = await fetch(`${Constantes.RUTA_API}/Users`, 
@@ -80,6 +80,8 @@ class Login extends React.Component {
             method: "POST",            
             body: cargaUtil,
         });
+        console.log("aqui esta la respuesta");
+        console.log(respuesta);
 
         //headers: { 'Content-Type': 'application/json' },
 

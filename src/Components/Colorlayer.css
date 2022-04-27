@@ -1,0 +1,45 @@
+.Fondoc{
+    background-size: cover;
+    position: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;   
+    padding: 20px 30px;
+}
+
+.Fondoc:before{
+    content:'';
+    position:  fixed;;
+    background-color: rgb(0 0 0 / 35%);;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+
+
+}
+
+.Fondo2c{
+    background-size: cover;
+    position: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;   
+    padding: 20px 30px;
+}
+.Fondo2c:before{
+    content:'';
+    position:  fixed;;
+    background-color: rgb(0, 0, 100,0.10);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+
+
+}
+
+.afuera{
+  position: relative;
+
+}

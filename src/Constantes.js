@@ -1,4 +1,4 @@
 const Constantes = {
-    RUTA_API: "3.83.116.42:5000",
+    RUTA_API: "http://localhost/api-php-react-main",
 };
 export default Constantes;

@@ -1,6 +1,6 @@
 {
-  "short_name": "React & PHP",
-  "name": "Conectar React con PHP",
+  "short_name": "React App",
+  "name": "Create React App Sample",
   "icons": [
     {
       "src": "favicon.ico",

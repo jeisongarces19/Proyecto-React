@@ -1,101 +1,114 @@
-import Nav from "./Nav";
-import AgregarVideojuego from "./AgregarVideojuego";
-import VerExposiciones from "./VerExposiciones";
-import EditarVideojuego from "./EditarVideojuego";
-import Login from "./Login";
-import Registrarse from "./Registrarse";
-import PreguntaRespuesta from "./PreguntaRespuesta";
-import MenuAdministrativo from "./MenuAdministrativo";
-import OpcionesAdministrativas from "./OpcionesAdministrativas";
-import MenuUsuario from "./MenuUsuario";
-import MenuUsuarioExposiciones from "./MenuUsuarioExposiciones";
-import UsuarioCreacionExposiciones from "./UsuarioCreacionExposiciones";
-import VisualizarExposicion from "./VisualizarExposicion";
+import './App.css';
+import "react-router-dom";
+import Footer from './Components/Footer';
+import Nav from './Components/Nav';
+import Colorlayer from './Components/Colorlayer';
+
+import Login from './Pages/Login';
+import Registrarse from "./Pages/Registrarse";
+import MenuAdministrativo from './Pages/MenuAdministrativo';
+import MenuUsuario from './Pages/MenuUsuario';
+import Perfil from './Pages/Perfil';
+import Pregunta from './Pages/Pregunta';
+import OpcionesAdministrativas from './Pages/OpcionesAdministrativas';
 
 
 
-
-import PaginaElementos from "./PaginaElementos";
-
-
-
-import {
-  Switch,
-  Route,
-} from "react-router-dom";
+import { Route, Switch } from "wouter";
 
 function App() {
   return (
-    <div>
-      <Nav></Nav>
-      <div className="section">
+    
+      
         <div className="columns">
-          <Switch>
 
-            <Route path="/MECA/login">
-              <Login></Login>
-            </Route>
-
-            <Route path="/MECA/Registrarse">
-              <Registrarse></Registrarse>
-            </Route>
           
-            <Route path="/MECA/agregar">
-              <AgregarVideojuego></AgregarVideojuego>
+          <div className="FondoApp" >
+
+
+          
+
+            <div className="navproyect">  
+              <Nav></Nav>
+            </div>
+
+            <Route path="/">
+                <div className="bodyproyectLogin"> 
+                  <Login />
+
+                  <Colorlayer/>   
+                </div>                              
             </Route>
 
-            <Route path="/MECA/editar/:id">
-              <EditarVideojuego></EditarVideojuego>
-            </Route>
+            <Switch>
+                         
 
-            <Route path="/MECA/ver">
-              <VerExposiciones></VerExposiciones>
-            </Route>
+              <Route path="/Login">
+                <div className="bodyproyectLogin"> 
+                  <Login />
+                </div>
+              </Route>
 
-            <Route path="/MECA/PreguntaRespuesta">
-              <PreguntaRespuesta></PreguntaRespuesta>
-            </Route>
+              <Route path="/Registrarse">
+                <div className="bodyproyectRegister">  
+                  <Registrarse/>
+                  <br></br> <br></br> <br></br> <br></br>
+                </div>
+              </Route>
 
-            <Route path="/MECA/PaginaElementos">
-              <PaginaElementos></PaginaElementos>
-            </Route>
+              <Route path="/Perfil">
+                <div className="bodyproyectRegister">  
+                  <Perfil/>                 
+                </div>
+              </Route>
 
-            <Route path="/MECA/MenuAdministrativo">
-              <MenuAdministrativo></MenuAdministrativo>
-            </Route>
+              <Route path="/MenuAdministrativo">
+                <div className="bodyproyectRegister">  
+                  <MenuAdministrativo/>                 
+                </div>
+              </Route>
 
-            <Route path="/MECA/OpcionesAdministrativas">
-              <OpcionesAdministrativas></OpcionesAdministrativas>
-            </Route>
+              <Route path="/OpcionesAdministrativas">
+                <div className="bodyproyectRegister">  
+                  <OpcionesAdministrativas/>                 
+                </div>
+              </Route>
 
-            <Route path="/MECA/MenuUsuario">
-              <MenuUsuario></MenuUsuario>
-            </Route>
+              <Route path="/Pregunta">
+                <div className="bodyproyectRegister">  
+                  <Pregunta/>                 
+                </div>
+              </Route>
 
-            <Route path="/MECA/MenuUsuarioExposiciones">
-              <MenuUsuarioExposiciones></MenuUsuarioExposiciones>
-            </Route>
+              <Route path="/MenuUsuario">
+                <div className="bodyproyectRegister">  
+                  <MenuUsuario/>                 
+                </div>
+              </Route>
 
-            <Route path="/MECA/VisualizarExposicion">
-              <VisualizarExposicion></VisualizarExposicion>
-            </Route>
 
-            <Route path="/MECA/UsuarioCreacionExposiciones">
-              <UsuarioCreacionExposiciones></UsuarioCreacionExposiciones>
-            </Route>
 
+
+
+
+
+            </Switch>
+            
+
+           
+         
+            <div className="footerproyect">  
+              <Footer></Footer>              
+            </div>
 
 
             
 
-
-            <Route path="/">
-              <Login></Login>
-            </Route>
-          </Switch>
+          </div>
         </div>
-      </div>
-    </div>
+      
+
+    
   );
 }
 

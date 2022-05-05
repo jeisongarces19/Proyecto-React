@@ -13,14 +13,14 @@ class Perfil extends React.Component {
         super(props);
         this.state = {
             data: {
-                "nombres": "",
-                "primerAprellido": "",
-                "segundoApellido": "",
-                "fechaNacimiento": "",
-                "correo": "",
-                "pass": "",
-                "ubicacion": "",
-                "descripcion": "",
+                "nombres": "Jeison Fernando",
+                "primerAprellido": "Garces ",
+                "segundoApellido": "Castañeda",
+                "fechaNacimiento": "1997-10-05",
+                "correo": "garcesjeison17@gmail.com",
+                "pass": "*********",
+                "ubicacion": "Cali,Colombia",
+                "descripcion": "Ingeniero de Sistemas de la PUJ",
             },
         };
         // Indicarle a las funciones a quién nos referimos con "this"
@@ -30,7 +30,7 @@ class Perfil extends React.Component {
     render() {
         return (
 
-            <div className="columns">
+            <div className="columns central">
                 <div className="column"></div>
 
                 <div className="column" >
@@ -41,8 +41,8 @@ class Perfil extends React.Component {
                                     
 
                     
-                        <div class="photo-container">
-                            <img alt="..." src="https://media-exp1.licdn.com/dms/image/C4D03AQHFkyjMqzvvlg/profile-displayphoto-shrink_200_200/0/1618892124538?e=1655942400&v=beta&t=yH-dLYSou-J55Fz6w3QQPG5ZtaTKpK3T5sAfUzZfb4I">
+                        <div className="photo-container">
+                            <img alt="..." src="https://scontent.fclo8-1.fna.fbcdn.net/v/t1.6435-9/96763841_2560962134004181_6427503684715806720_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=174925&_nc_eui2=AeH3cpBhmPB-hqAaoYFwMxZl0F4KPX8zzBvQXgo9fzPMG9JvJhrlLApTCsCh5sT0YRg2lzYIIr817q1iLfdK6o4W&_nc_ohc=NF6WcE8xaj8AX_UmsOK&_nc_ht=scontent.fclo8-1.fna&oh=00_AT8hhlsjaFUZG9E0nLQKiEpUCRHe4SVqkCB9QPAJZcr5DA&oe=629717C5">
                             </img>
                         </div>
 
@@ -96,7 +96,7 @@ class Perfil extends React.Component {
 
                             <div className="form-group">
                                 <button className="button is-primary mt-2">
-                                    Registrarse
+                                    Actualizar informacion
                                 </button>
 
                                 

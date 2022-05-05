@@ -28,6 +28,7 @@
     transition: box-shadow .4s,-webkit-transform .4s;
     transition: transform .4s,box-shadow .4s,-webkit-transform .4s;
     background-color: transparent;
+    margin-top: -70px;
 }
 
 
@@ -46,5 +47,10 @@
      
     padding: 10px 48px;       
     background-color: #00000000;
+}
+
+.central{
+    padding: 40px 0px 80px;
+    
 }
 

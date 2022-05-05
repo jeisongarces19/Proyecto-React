@@ -35,37 +35,43 @@ class MenuAdministrativo extends React.Component {
                   <div className="cardMenuAdmin">
                     <center>
 
-                      <h1 className="title">Menu Administrativo</h1>                
-
-                    
-                      <div class="photo-container">
-                        <img alt="..." src="https://media-exp1.licdn.com/dms/image/C4D03AQHFkyjMqzvvlg/profile-displayphoto-shrink_200_200/0/1618892124538?e=1655942400&v=beta&t=yH-dLYSou-J55Fz6w3QQPG5ZtaTKpK3T5sAfUzZfb4I">
-                        </img>
+                      <div className="photo-container">
+                            <img alt="..." src="https://media-exp1.licdn.com/dms/image/C4D03AQHFkyjMqzvvlg/profile-displayphoto-shrink_200_200/0/1618892124538?e=1655942400&v=beta&t=yH-dLYSou-J55Fz6w3QQPG5ZtaTKpK3T5sAfUzZfb4I">
+                            </img>
                       </div>
+
+                      <h1 className="title">Menu Administrativo Administrar</h1>  
 
                      
 
                       <div className="separador">
 
-                          <a rel="noreferrer" href="#" className="btn-lg">Perfil</a>
-                          <span> <br></br> <br></br> </span>
+                          <button className="button is-primary mt-2">
+                            <a rel="noreferrer" href="/Perfil">Perfil</a>
+                          </button>
+
+                           <span> <br></br> </span>
+
+                         
+                          <button className="button is-primary mt-2">
+                            <a rel="noreferrer" href="/Registrarse">Exposiciones Virtuales</a>
+                          </button>
+
+                           <span> <br></br> </span>
 
 
-                          <a rel="noreferrer" href="#" className="btn-lg">Exposiciones Virtuales</a>
-                          <span> <br></br> <br></br>  </span>
+                          <button className="button is-primary mt-2">
+                            <a rel="noreferrer" href="/OpcionesAdministrativas">Administrar Usuarios</a>
+                          </button>
 
-                          <a rel="noreferrer" href="#" className="btn-lg">Administrar Usuarios</a>
-                          <span> <br></br> <br></br> </span>
-
-                          <a rel="noreferrer" href="#" className="btn-lg">Salir</a>
-                          
-
-                      </div>
+                           <span> <br></br>  </span>
 
 
-
-                      
-
+                          <button className="button is-primary mt-2">
+                            <a rel="noreferrer" href="/Login">Salir</a>
+                          </button>
+                                    
+                        </div>
                     </center>
                   </div>
                 </div>

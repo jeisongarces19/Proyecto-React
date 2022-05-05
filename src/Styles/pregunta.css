@@ -8,13 +8,22 @@
     border: 1px solid rgb(0 0 0 / 58%);
     border-radius: 1.25rem;
     /* flex-wrap: wrap; */
-    /* align-content: space-around; */
+    /* align-content: space-around; 
+    top: 100px;*/
     justify-content: center;
-    top: 100px;
+    
 }
 
 .title {
     font-weight: 700;
     color: #000;
     text-align: center;
+}
+
+.figura{
+
+    border-radius: 50px;
+    background-color: #2dabdbc7;
+    position: fixed;
+    justify-content: center;
 }

@@ -38,7 +38,6 @@
 .container-fluid {
     width: 100%;
     padding-right: 15px;
-    padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
     display: flex;
@@ -59,19 +58,20 @@
 
 
 .button.is-warning {
-    background-color: #97ff8a;
+    background-color: #2fa3db;
     border-color: transparent;
     color: rgba(0, 0, 0, 0.7);
 }
 
 .button.is-warning.is-active {
-    background-color: #01cfcf;
+    background-color: #2fa3db;
     border-color: transparent;
     color: rgba(0, 0, 0, 0.7);
 }
 
 .button.is-warning:hover, .button.is-warning.is-hovered {
-    background-color: #11b9b9;
+    background-color: #2fa3db;
     border-color: transparent;
     color: rgba(0, 0, 0, 0.7);
 }
+

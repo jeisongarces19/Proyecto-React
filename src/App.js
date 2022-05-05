@@ -1,7 +1,10 @@
 import './App.css';
 import "react-router-dom";
-import Footer from './Components/Footer';
+
+import Asistente from './Components/Asistente';
 import Nav from './Components/Nav';
+import Footer from './Components/Footer';
+
 import Colorlayer from './Components/Colorlayer';
 
 import Login from './Pages/Login';
@@ -20,23 +23,20 @@ function App() {
   return (
     
       
-        <div className="columns">
+        <div className="">
 
           
           <div className="FondoApp" >
 
-
-          
-
             <div className="navproyect">  
               <Nav></Nav>
+              <Colorlayer></Colorlayer>
+              
             </div>
 
             <Route path="/">
                 <div className="bodyproyectLogin"> 
-                  <Login />
-
-                  <Colorlayer/>   
+                  <Login /> 
                 </div>                              
             </Route>
 
@@ -52,52 +52,51 @@ function App() {
               <Route path="/Registrarse">
                 <div className="bodyproyectRegister">  
                   <Registrarse/>
-                  <br></br> <br></br> <br></br> <br></br>
                 </div>
               </Route>
 
               <Route path="/Perfil">
-                <div className="bodyproyectRegister">  
-                  <Perfil/>                 
+                <div className="bodyproyectLogin">  
+                  <Perfil/>               
                 </div>
               </Route>
 
               <Route path="/MenuAdministrativo">
-                <div className="bodyproyectRegister">  
-                  <MenuAdministrativo/>                 
+                <div className="bodyproyectLogin">  
+                  <MenuAdministrativo/>                
                 </div>
               </Route>
 
               <Route path="/OpcionesAdministrativas">
-                <div className="bodyproyectRegister">  
-                  <OpcionesAdministrativas/>                 
+                <div className="bodyproyectLogin">  
+                  <OpcionesAdministrativas/>  
                 </div>
               </Route>
 
               <Route path="/Pregunta">
-                <div className="bodyproyectRegister">  
-                  <Pregunta/>                 
+                <div className="bodyproyectLogin">  
+                  <Pregunta/>              
                 </div>
               </Route>
 
               <Route path="/MenuUsuario">
-                <div className="bodyproyectRegister">  
+                <div className="bodyproyectLogin">  
                   <MenuUsuario/>                 
                 </div>
               </Route>
-
-
-
-
-
-
-
             </Switch>
+
+
+
             
 
            
-         
-            <div className="footerproyect">  
+            <div className="">
+              <Asistente></Asistente> 
+            </div>
+
+            <div className="footerproyect"> 
+              
               <Footer></Footer>              
             </div>
 

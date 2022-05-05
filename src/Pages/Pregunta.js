@@ -9,18 +9,44 @@ import '../App.css';
 import '../Styles/pregunta.css';
 
 
-class Login extends React.Component {
+
+
+class TodoList extends React.Component {
+  render() {
+    return (
+        <div>
+          <ul>
+            {this.props.items.map(item => (
+                <div className="figura" >
+                    <li style={{background: '28abdbc7' }} key={item.id}>{item.text}</li>
+                </div>    
+            ))}
+          </ul>
+        </div>
+    );
+  }
+}
+
+
+
+class Pregunta extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             dates: {
                 "pregunta": "",
             },
+            items: [], 
+            text: '',
         };
         // Indicarle a las funciones a quién nos referimos con "this"
         
         this.manejarCambio = this.manejarCambio.bind(this);
         this.manejarEnvioDeFormulario = this.manejarEnvioDeFormulario.bind(this);
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        
     }
     render() {
         return (
@@ -39,13 +65,13 @@ class Login extends React.Component {
                       <h1 className="title">🧐 Hazme Una Pregunta ❓ </h1>                
 
                       <ToastContainer></ToastContainer>
-
+                      <TodoList items={this.state.items} />
                       
-                      <form className="fToastContainerield" onSubmit={this.manejarEnvioDeFormulario}>
+                      <form className="fToastContainerield" onSubmit={this.manejarEnvioDeFormulario,this.handleSubmit}>
 
 
                           <div className="form-group">                                
-                            <input autoFocus required placeholder=" Pregunta ❓ " type="text" id="pregunta" className="FondoInput" onChange={this.manejarCambio} value={this.state.dates.user} >
+                            <input autoFocus required placeholder=" Pregunta ❓ " type="text" id="pregunta" className="FondoInput" onChange={this.manejarCambio,this.handleChange} value={this.state.dates.user,this.state.text}>
                               
                             </input>
                           </div>                         
@@ -53,9 +79,9 @@ class Login extends React.Component {
 
                         
                           <div className="form-group">
-                              <button className="button is-success mt-2">
+                              <button className="button is-success mt-2" >
                               Enviar
-                              </button>                       
+                              </button>                     
                           </div>
                       </form>
 
@@ -108,25 +134,46 @@ class Login extends React.Component {
         }
     }
 
+   
+
 
     manejarCambio(evento) {
-
+        
+    
         const clave = evento.target.id;
         let valor = evento.target.value;
         this.setState(state => {
             const datesActualizado = state.dates;
-            // Si es la calificación o el nombre, necesitamos castearlo a entero
-            //if (clave !== "nombre") {
-            //    valor = parseFloat(valor);
-            //}
-            // Actualizamos el valor del dates, solo en el campo que se haya cambiado
+            
             datesActualizado[clave] = valor;
             return {
                 dates: datesActualizado,
             }
         });
     }
+
+
+    handleChange(e) {
+        this.setState({ text: e.target.value });
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        if (this.state.text.length === 0) {
+          return;
+        }
+        const newItem = {
+          text: this.state.text,
+          id: Date.now()
+        };
+        this.setState(state => ({
+          items: state.items.concat(newItem),
+          text: ''
+        }));
+    }
+
+
     
 }
 
-export default Login;
+export default Pregunta;

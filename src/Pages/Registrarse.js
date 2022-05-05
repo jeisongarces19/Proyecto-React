@@ -29,7 +29,7 @@ class Registrarse extends React.Component {
     render() {
         return (
 
-            <div className="columns">
+            <div className="columns central">
                 <div className="column"></div>
 
                 <div className="column" >

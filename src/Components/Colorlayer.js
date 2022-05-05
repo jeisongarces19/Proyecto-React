@@ -2,96 +2,78 @@ import React from 'react';
 import './Colorlayer.css';
 
 
-class TodoList extends React.Component {
-  render() {
-    return (
-      <h>
-        {this.props.items.map(item => (
-          <div className={item.text}>
-          </div>
-        ))}
-      </h>
-    );
-  }
-}
-
-class TodoList1 extends React.Component {
-  render() {
-    return (
-      <h1>
-        
-      </h1>
-    );
-  }
-}
-
-
-
 class Colorlayer extends React.Component {
   
   constructor(props) {
-    super(props);
-    this.state = { items: [], text: '' };
-    this.state2 ={ items2: [], op: '' };
+    super(props)
+    this.state = {
+      fondo: "normal"    
+    };
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleChange2 = this.handleChange2.bind(this);
+    this.manejarCambio = this.manejarCambio.bind(this);
+    this.manejarCambio1 = this.manejarCambio1.bind(this);
+    this.manejarCambio2 = this.manejarCambio2.bind(this);
+  }  
 
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+
+  /*componentWillMount(){
+    setTimeout(()=>{
+      this.setState({ 
+        fondo: 'Fondoc' 
+      });
+    },5000)
+  }*/
 
   render() {
-    return (
-      <div>
-        <br></br>
-        <br></br>
-        <br></br>
+      return (
+        <div className="posicion">
 
-        <TodoList items={this.state.items} />
+          <div className={this.state.fondo}>    
+           
+            <button className="afuera color" onClick={this.manejarCambio} >
+                Blanc
+            </button>
+            <br></br>
 
-        <form onSubmit={this.handleSubmit}>
-          {this.state.text="Fondoc"}
-          <button  className="afuera" id="new-todo" onChange={this.handleChange} >
-              Añadir 
-          </button>
-        </form>
+            <button className="afuera color1" onClick={this.manejarCambio1} >
+                Oscu
+            </button>
+            <br></br>
 
-       
+            <button className="afuera color2" onClick={this.manejarCambio2} >
+                 Azul
+            </button>
 
+            <br></br>
 
-
- 
-               
-        
-
-
-
-      </div>
-    );
+            <br></br>
+            <br></br>
+            
+          </div>
+        </div>
+      );
+    
   }
 
-
-  handleChange(e) {  
-    this.setState({ text: e.target.value });
+  manejarCambio() {  
+    
+    this.setState({ 
+      fondo: "normal" 
+    });
   }
 
-  handleChange2(e) {
-     this.setState({ op: e.target.value });
+   manejarCambio1() {  
+    
+    this.setState({ 
+      fondo: "Fondoc" 
+    });
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    if (this.state.text.length === 0) {
-      return;
-    }
-    const newItem = {
-      text: this.state.text,
-      id: Date.now()
-    };
-    this.setState(state => ({
-      items: state.items.concat(newItem),
-      text: ''
-    }));
+  manejarCambio2() {  
+    
+    this.setState({ 
+      fondo: "Fondo2c" 
+    });
   }
 
 

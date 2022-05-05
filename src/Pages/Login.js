@@ -53,7 +53,7 @@ class Login extends React.Component {
                           
 
                           <div className="form-group">
-                              <input required placeholder="🔑 Password" type="text" id="password" className="FondoInput" onChange={this.manejarCambio} value={this.state.dates.password} >
+                              <input required placeholder="🔑 Password" type="password" id="password" className="FondoInput" onChange={this.manejarCambio} value={this.state.dates.password} >
                               </input>
                           </div>
                       
@@ -69,6 +69,8 @@ class Login extends React.Component {
 
 
                           </div>
+                       
+
                       </form>
 
                       <a className="Recuperacion" href="http://#">Deseas recuperar tu clave?</a>

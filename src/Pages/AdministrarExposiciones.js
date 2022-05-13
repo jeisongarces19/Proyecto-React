@@ -1,20 +1,53 @@
-import React from 'react';
+import React,{useState} from 'react';
 import Constantes from "../Constantes";
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../App.css';
-import '../Styles/login.css';
+import '../Styles/administrarExposiciones.css';
+
+import ReactPlayer from 'react-player';
+
+import {Paginacion} from '../Components/Paginacion';
+import {Pokemons} from '../Data/Pokemons';
+import styles from '../styles.module.scss';
+
+
+function PaginasExposiciones () {
+  const [pagina, setPagina] = useState (1);
+  const [porPagina, setPorPagina] = useState (3);
+
+  const maximo = Pokemons.length / porPagina;
+
+  return (
+    <div className={styles.container}>
+      <div className={styles.containerPoke}>
+      {Pokemons.slice (
+        (pagina - 1) * porPagina,
+        (pagina - 1) * porPagina + porPagina
+      ).map ((pokemon, i) => (
+        <div key={i} className={styles.pokeContainer}>
+          <div className={styles.imgContainer}>
+            <img src={pokemon.img} alt={pokemon.name} />
+          </div>
+          <p>{pokemon.name}</p>
+        </div>
+      ))}
+      </div>
+
+      <Paginacion pagina={pagina} setPagina={setPagina} maximo={maximo} />
+    </div>
+  );
+}
 
 
 
-
-class Login extends React.Component {
+class AdministrarExposiciones extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             dates: {
-                "email": "",
+                "email": "https://www.youtube.com/watch?v=ZYy8w5QmdbM",
                 "password": "",
             },
         };
@@ -32,55 +65,24 @@ class Login extends React.Component {
 
               <div className="column"></div>
 
-                <div className="column" >
+                <div className="column is-two-thirds" >
 
-                  <div className="card2">
+                    <div className="card2">
                     <center>
 
-                      <h1 className="is-size-1 colorletra">Iniciar Sesion</h1>                
-
-                      <ToastContainer></ToastContainer>
-
-                      
-                      <form className="fToastContainerield" onSubmit={this.manejarEnvioDeFormulario}>
-
-
-                          <div className="form-group">                                
-                            <input autoFocus required placeholder="✉️ Email" type="text" id="email" className="FondoInput" onChange={this.manejarCambio} value={this.state.dates.user} >
-                              
-                            </input>
-                          </div>
-                          
-
-                          <div className="form-group">
-                              <input required placeholder="🔑 Password" type="password" id="password" className="FondoInput" onChange={this.manejarCambio} value={this.state.dates.password} >
-                              </input>
-                          </div>
-                      
-
-                        
-                          <div className="form-group">
-                              <button className="button is-success mt-2">
-                              Iniciar sesion
-                              </button>
-
-                            &nbsp;
-                            <a href="/Registrarse" className="button is-primary mt-2">Registrarse</a>
-
-
-                          </div>
-                       
-
-                      </form>
-
-                      <a className="Recuperacion" href="http://#">Deseas recuperar tu clave?</a>
-
+                        <h1 className="is-size-1 colorletra"> ¡Lista Exposiciones Virtuales! </h1>                
+                        <div className="playlist-unit">
+                            <div className="playlist-unit-inner">
+                                <PaginasExposiciones></PaginasExposiciones>                                 
+                            </div>                    
+                        </div>
+                  
                     </center>
-                  </div>
+                    </div>
                 </div>
                 
                 <div className="column" >
-                   
+                    
                 </div>
 
             </div>
@@ -148,4 +150,4 @@ class Login extends React.Component {
     
 }
 
-export default Login;
+export default AdministrarExposiciones;

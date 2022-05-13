@@ -56,7 +56,10 @@ class Nav extends React.Component {
                             <a onClick={this.ocultarMenu} activeClassName="is-active" className="navbar-item" href="/MenuUsuario">Menu Usuario</a>
                             <a onClick={this.ocultarMenu} activeClassName="is-active" className="navbar-item" href="/MenuAdministrativo">Menu administrativo</a>
                             <a onClick={this.ocultarMenu} activeClassName="is-active" className="navbar-item" href="/OpcionesAdministrativas">Opciones Administrativas</a>
-                            
+                            <a onClick={this.ocultarMenu} activeClassName="is-active" className="navbar-item" href="/ListarExposicionesVirtuales">Listar Exposiciones</a>
+                            <a onClick={this.ocultarMenu} activeClassName="is-active" className="navbar-item" href="/AdministrarExposiciones">Administrar Exposiciones</a>
+                            <a onClick={this.ocultarMenu} activeClassName="is-active" className="navbar-item" href="/ExposicionesVirtuales">Ver Exposiciones Virtuales</a>
+                            <a onClick={this.ocultarMenu} activeClassName="is-active" className="navbar-item" href="/CrearExposicionesVirtuales">Crear Exposiciones Virtuales</a>
                         </div>
 
                         <div className="navbar-end">

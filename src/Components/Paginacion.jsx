@@ -15,7 +15,7 @@ export const Paginacion = ({pagina, setPagina, maximo}) => {
   };
 
   const onKeyDown = e => {
-    if (e.keyCode == 13) {
+    if (e.keyCode === 13) {
       setPagina (parseInt (e.target.value));
       if (
         parseInt (e.target.value < 1) ||
@@ -51,7 +51,7 @@ export const Paginacion = ({pagina, setPagina, maximo}) => {
         autoComplete="off"
         value={input}
       />
-      <p> de {maximo} </p>
+      <p style={{color: "#ffffff"}} > de {maximo} </p>
       <button
         disabled={pagina === Math.ceil (maximo) || pagina > Math.ceil (maximo)}
         onClick={nextPage}

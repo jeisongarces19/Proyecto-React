@@ -51,15 +51,15 @@ class Nav extends React.Component {
 
 
                             <a onClick={this.ocultarMenu} activeClassName="is-active" className="navbar-item" href="/login">Login</a>
-                            <a onClick={this.ocultarMenu} activeClassName="is-active" className="navbar-item" href="/Perfil">Perfil</a>
-                            <a onClick={this.ocultarMenu} activeClassName="is-active" className="navbar-item" href="/Pregunta">Pregunta</a>
-                            <a onClick={this.ocultarMenu} activeClassName="is-active" className="navbar-item" href="/MenuUsuario">Menu Usuario</a>
-                            <a onClick={this.ocultarMenu} activeClassName="is-active" className="navbar-item" href="/MenuAdministrativo">Menu administrativo</a>
+                            {/*<a onClick={this.ocultarMenu} activeClassName="is-active" className="navbar-item" href="/Perfil">Perfil</a>*/}                  
+                            <a onClick={this.ocultarMenu} activeClassName="is-active" className="navbar-item" href="/MenuUsuario">Menu U</a>
+                            <a onClick={this.ocultarMenu} activeClassName="is-active" className="navbar-item" href="/MenuAdministrativo">Menu A</a>
                             <a onClick={this.ocultarMenu} activeClassName="is-active" className="navbar-item" href="/OpcionesAdministrativas">Opciones Administrativas</a>
                             <a onClick={this.ocultarMenu} activeClassName="is-active" className="navbar-item" href="/ListarExposicionesVirtuales">Listar Exposiciones</a>
                             <a onClick={this.ocultarMenu} activeClassName="is-active" className="navbar-item" href="/AdministrarExposiciones">Administrar Exposiciones</a>
-                            <a onClick={this.ocultarMenu} activeClassName="is-active" className="navbar-item" href="/ExposicionesVirtuales">Ver Exposiciones Virtuales</a>
-                            <a onClick={this.ocultarMenu} activeClassName="is-active" className="navbar-item" href="/CrearExposicionesVirtuales">Crear Exposiciones Virtuales</a>
+                            <a onClick={this.ocultarMenu} activeClassName="is-active" className="navbar-item" href="/ExposicionesVirtuales">Exposiciones Virtuales</a>
+                            <a onClick={this.ocultarMenu} activeClassName="is-active" className="navbar-item" href="/CrearExposicionesVirtuales">Crear E Virtuales</a>
+                            <a onClick={this.ocultarMenu} activeClassName="is-active" className="navbar-item" href="/Pregunta">Preguntas</a>
                         </div>
 
                         <div className="navbar-end">

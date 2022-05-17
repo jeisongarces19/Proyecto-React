@@ -3,9 +3,7 @@ import Constantes from "../Constantes";
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 import '../App.css';
-import { Link } from 'react-router-dom';
 
 class Registrarse extends React.Component {
     constructor(props) {
@@ -73,11 +71,10 @@ class Registrarse extends React.Component {
                                 <input required placeholder="📌 Ubicacion" type="text" id="ubicacion" className="FondoInput"  onChange={this.manejarCambio} value={this.state.data.ubicacion} >
                                 </input>
                             </div>
-
+                  
                             <div className="form-group">
-                                <input required placeholder="☕ Descripcion Personal" type="text" id="descripcion" className="FondoInput"  onChange={this.manejarCambio} value={this.state.data.descripcion}>
-                                </input>
-                            </div>  
+                                <textarea placeholder="☕ Descripcion Personal" className="FondoInput" id="descripcion" className="FondoInput"  onChange={this.manejarCambio} value={this.state.data.descripcion}></textarea>
+                            </div>
 
                             <div className="form-group">
                                 <input autoFocus required placeholder="📅 Fecha de Nacimiento" type="date" id="fechaNacimiento" className="FondoInput"  onChange={this.manejarCambio} value={this.state.data.fechaNacimiento}  >

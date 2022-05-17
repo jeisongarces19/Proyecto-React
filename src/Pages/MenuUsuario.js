@@ -1,13 +1,7 @@
 import React from 'react';
-
-import { Link } from 'react-router-dom';
-
 import '../Styles/menuadministrativo.css';
 
-
-class MenuUsuario extends React.Component {
-
-   
+class MenuUsuario extends React.Component {   
     constructor(props) {
         super(props);
         this.state = {
@@ -19,12 +13,10 @@ class MenuUsuario extends React.Component {
     }
     render() {
         
-
-        return (
-
-            
+        return (            
 
             <div className="columns central">
+
 
               <div className="column"></div>
 
@@ -38,12 +30,10 @@ class MenuUsuario extends React.Component {
                             </img>
                       </div>
 
-                      <h1 className="title">Menu Administrativo</h1>  
-
-                     
+                      <h1 className="title">Menu Administrativo</h1> 
+                    
 
                       <div className="separador">
-
                          
                           <button className="button is-primary mt-2">
                             <a rel="noreferrer" href="/Perfil">Perfil</a>
@@ -53,7 +43,7 @@ class MenuUsuario extends React.Component {
 
 
                           <button className="button is-primary mt-2">
-                            <a rel="noreferrer" href="/Registrarse">Exposiciones Virtuales</a>
+                            <a rel="noreferrer" href="/ExposicionesVirtuales">Exposiciones Virtuales</a>
                           </button>
 
                            <span> <br></br>  </span>

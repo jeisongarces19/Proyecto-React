@@ -1,14 +1,7 @@
 import React from 'react';
-
-
-
-import { Link } from 'react-router-dom';
-
 import '../Styles/menuadministrativo.css';
 
-
 class MenuAdministrativo extends React.Component {
-
    
     constructor(props) {
         super(props);
@@ -19,12 +12,8 @@ class MenuAdministrativo extends React.Component {
         };
         // Indicarle a las funciones a quién nos referimos con "this"
     }
-    render() {
-        
-
-        return (
-
-            
+    render() {        
+        return (            
 
             <div className="columns central">
 
@@ -41,7 +30,6 @@ class MenuAdministrativo extends React.Component {
                       </div>
 
                       <h1 className="title">Menu Administrativo Administrar</h1>  
-
                      
 
                       <div className="separador">
@@ -54,7 +42,7 @@ class MenuAdministrativo extends React.Component {
 
                          
                           <button className="button is-primary mt-2">
-                            <a rel="noreferrer" href="/Registrarse">Exposiciones Virtuales</a>
+                            <a rel="noreferrer" href="/ExposicionesVirtuales">Exposiciones Virtuales</a>
                           </button>
 
                            <span> <br></br> </span>

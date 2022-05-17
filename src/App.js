@@ -63,14 +63,17 @@ function App() {
               </Route>
 
               <Route path="/Perfil">
-                <div className="bodyproyectLogin">  
-
+                <div className="bodyproyectLogin">
+                  <br></br>
+                  <br></br>  
                   <Perfil/>   
-                  <Asistente show="Perfil" style="color:red;"></Asistente>                             
+                  <Asistente show="Perfil"  style={{color: "#black" , height:"100vh", backgroundColor:"#fde2e4"}}></Asistente>                             
                 </div>
               </Route>
 
               <Route path="/MenuAdministrativo">
+                <br></br>
+                <br></br>
                 <div className="bodyproyectLogin">  
                   <MenuAdministrativo/>     
                   <Asistente show="Login"></Asistente>            
@@ -84,15 +87,12 @@ function App() {
                 </div>
               </Route>
 
-              <Route path="/Pregunta">
-                <div className="bodyproyectLogin">  
-                  <Pregunta/>
-                  <Asistente show="Login"></Asistente>             
-                </div>
-              </Route>
+              
 
               <Route path="/MenuUsuario">
                 <div className="bodyproyectLogin">  
+                  <br></br>
+                  <br></br>
                   <MenuUsuario/>    
                   <Asistente show="Login"></Asistente>              
                 </div>
@@ -124,6 +124,13 @@ function App() {
                 <div className="bodyproyectLogin">  
                   <CrearExposicionesVirtuales/>   
                   <Asistente show="Login"></Asistente>               
+                </div>
+              </Route>
+
+              <Route path="/Pregunta">
+                <div className="bodyproyectLogin">  
+                  <Pregunta/>
+                  <Asistente show="Login"></Asistente>             
                 </div>
               </Route>
 

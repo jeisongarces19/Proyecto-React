@@ -55,6 +55,7 @@ La compilación se minimiza y los nombres de archivo incluyen los hashes.
 ## Como se encuentra construido el Front end:
 
 ### App.js= opcines con Switch y llamado de ventanas con Route. se export default App;
+Aqui se encuentra el body de todas las paginas. 
 
 #### index.js= Aqui se llama a la aplicacion la cual seria App.s 
 

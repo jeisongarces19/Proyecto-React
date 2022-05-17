@@ -16,13 +16,18 @@ class Login extends React.Component {
             dates: {
                 "email": "",
                 "password": "",
+                "isChecked": false,
             },
         };
         // Indicarle a las funciones a quién nos referimos con "this"
         
         this.manejarCambio = this.manejarCambio.bind(this);
         this.manejarEnvioDeFormulario = this.manejarEnvioDeFormulario.bind(this);
+        this.toggleChange = this.toggleChange.bind(this);
+
     }
+
+
     render() {
         return (
 
@@ -56,6 +61,40 @@ class Login extends React.Component {
                               <input required placeholder="🔑 Password" type="password" id="password" className="FondoInput" onChange={this.manejarCambio} value={this.state.dates.password} >
                               </input>
                           </div>
+
+                          <div className="form-group">
+                            <label style={{color: 'black'}}> User <span> </span> 
+                                <input type="checkbox" name="user" id="user" value="first_checkbox" ></input>
+                                
+                            </label>  
+                            <span> </span>    
+                            <label> Manager 
+                                <input type="checkbox"
+                                    name="manager"
+                                  defaultChecked={this.state.dates.isChecked}
+                                  onChange={this.toggleChange}
+                                />
+                                
+                            </label> 
+
+                           
+
+                            
+
+                          </div>
+                          
+                          
+                          {/*  <label> Is going: <input name="manager"  type="checkbox"  checked={this.state.dates.manager,handleInputChange}   onChange={this.handleInputChange} />
+                             </label>
+
+
+                            <div>
+                            
+                            <select id="blend-top" className="FondoInput" >
+                              <option selected>User</option>
+                              <option>manager</option>                             
+                            </select>
+                          </div>*/}
                       
 
                         
@@ -88,8 +127,18 @@ class Login extends React.Component {
         );
     }
 
+    toggleChange = () => {
+            this.setState({
+              isChecked: !this.state.isChecked,
+            });
+    }
+
+    
+
+
     async manejarEnvioDeFormulario(evento) {
 
+        
         evento.preventDefault();       
         const cargaUtil = JSON.stringify(this.state.dates);
 
@@ -120,6 +169,7 @@ class Login extends React.Component {
                 dates: {
                     email: "",
                     password: "",
+                    isChecked: "",
                 }
             });
         } else {

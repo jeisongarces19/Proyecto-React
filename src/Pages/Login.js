@@ -193,7 +193,7 @@ class Login extends React.Component {
         
         const respuesta = await fetch(`${Constantes.RUTA_API}/Users`, 
         {
-            method: "POST",            
+            method: "GET",            
             body: cargaUtil,
         });
         

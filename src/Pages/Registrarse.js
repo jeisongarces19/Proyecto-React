@@ -1,8 +1,7 @@
 import React from 'react';
-import Constantes from "../Constantes";
+//import Constantes from "../Constantes";
+import swal from 'sweetalert';
 
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import '../App.css';
 
 class Registrarse extends React.Component {
@@ -12,17 +11,19 @@ class Registrarse extends React.Component {
             data: {
                 "nombres": "",
                 "primerAprellido": "",
-                "segundoApellido": "",
-                "fechaNacimiento": "",
+                "segundoApellido": "",                
                 "correo": "",
                 "pass": "",
                 "ubicacion": "",
+                "foto":"",
                 "descripcion": "",
+                "fecha": "",
+                
             },
         };
         // Indicarle a las funciones a quién nos referimos con "this"
-        this.manejarCambio = this.manejarCambio.bind(this);
         this.manejarEnvioDeFormulario = this.manejarEnvioDeFormulario.bind(this);
+        this.manejarCambio = this.manejarCambio.bind(this);
     }
     render() {
         return (
@@ -36,11 +37,8 @@ class Registrarse extends React.Component {
                         <center>
 
                         <h1 className="is-size-1 colorletra">Registrarse</h1>                
-
-                        <ToastContainer></ToastContainer>
-
                       
-                        <form className="fToastContainerield" onSubmit={this.manejarEnvioDeFormulario}>
+                        <form className="" onSubmit={this.manejarEnvioDeFormulario}>
 
                             <div className="form-group">
                                 <input autoFocus required placeholder="🆎 Nombres" type="text" id="nombres" className="FondoInput"  onChange={this.manejarCambio} value={this.state.data.nombres} >
@@ -71,13 +69,18 @@ class Registrarse extends React.Component {
                                 <input required placeholder="📌 Ubicacion" type="text" id="ubicacion" className="FondoInput"  onChange={this.manejarCambio} value={this.state.data.ubicacion} >
                                 </input>
                             </div>
+
+                            <div className="form-group">
+                                <input required placeholder="📷 Foto (Url)" type="text" id="foto" className="FondoInput"  onChange={this.manejarCambio} value={this.state.data.foto} >
+                                </input>
+                            </div>
                   
                             <div className="form-group">
                                 <textarea placeholder="☕ Descripcion Personal" className="FondoInput" id="descripcion"  onChange={this.manejarCambio} value={this.state.data.descripcion}></textarea>
-                            </div>
+                            </div>                            
 
                             <div className="form-group">
-                                <input autoFocus required placeholder="📅 Fecha de Nacimiento" type="date" id="fechaNacimiento" className="FondoInput"  onChange={this.manejarCambio} value={this.state.data.fechaNacimiento}  >
+                                <input autoFocus required placeholder="📅 Fecha de Nacimiento" type="date" id="fecha" className="FondoInput"  onChange={this.manejarCambio} value={this.state.data.fechaNacimiento}  >
                                 </input>
                             </div> 
 
@@ -97,73 +100,92 @@ class Registrarse extends React.Component {
                 <div className="column"></div>
 
             </div>
-            //Para comentar
 
         );
     }
+
+
     async manejarEnvioDeFormulario(evento) {
+
+        const continuar = () =>{
+            swal({
+              title: "Registro",
+              text: "Tu usuario ha sido creado",
+              icon: "success",              
+            });
+        }
+
+        const detener = () =>{
+            swal({
+              title: "Error",
+              text: "Surgio un error al crear el usuario",
+              icon: "error",
+              dangerMode: true,
+            })
+            .then(willDelete => {
+              if (willDelete) {
+                swal("Volver a intentar!");
+              }
+            });
+        }
 
         evento.preventDefault();
        
         const cargaUtil = JSON.stringify(this.state.data);
+        console.log(cargaUtil);   
 
-        
-        console.log("aqui estas los data de login");
-        console.log(cargaUtil);
-   
-
-        const respuesta = await fetch(`${Constantes.RUTA_API}/Guardar_user.php`, 
+        /*
+        const respuesta = await fetch(`${Constantes.RUTA_API}/Guardar_user`, 
         {
             method: "POST",            
             body: cargaUtil,
         });
+        */        
 
+        /*console.log("lo del respuesta",respuesta); 
 
-        const exitoso = await respuesta.json();
+        const exitoso = await respuesta.json();*/
+        const exitoso = 1;
+
+        console.log("lo del exitoso",exitoso); 
+
 
         if (exitoso) {
-            toast('Usuario guardado 🎮', {
-                position: "top-left",
-                autoClose: 2000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
+            continuar();           
+
             this.setState({
                 data: {
-                    nombres: "",
-                    primerAprellido: "",
-                    segundoAprellido: "",
-                    fechaNacimiento: "",
-                    correo: "",
-                    pass: "",
-                    ubicacion: "",
-                    descripcion: "",
+                    "nombres": "",
+                    "primerAprellido": "",
+                    "segundoApellido": "",                
+                    "correo": "",
+                    "pass": "",
+                    "ubicacion": "",
+                    "foto":"",
+                    "descripcion": "",
+                    "fecha": "",
                 }
             });
-        } else {
-            toast.error("Error guardando. Intenta de nuevo");
+        } else {        
+            detener();
         }
     }
+
     manejarCambio(evento) {
         const clave = evento.target.id;
         let valor = evento.target.value;
         this.setState(state => {
-            const videojuegoActualizado = state.data;
-            // Si es la calificación o el nombres, necesitamos castearlo a entero
-            //if (clave !== "nombre") {
-            //    valor = parseFloat(valor);
-            //}
-            // Actualizamos el valor del data, solo en el campo que se haya cambiado
-            videojuegoActualizado[clave] = valor;
+            const dataActualizado = state.data;            
+            dataActualizado[clave] = valor;
             return {
-                data: videojuegoActualizado,
+                data: dataActualizado,
             }
         });
     }
+
+
     
+        
 }
 
 export default Registrarse;

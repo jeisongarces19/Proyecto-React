@@ -57,10 +57,15 @@ class Pregunta extends React.Component {
 
               <div className="column"></div>
 
+
                 <div className="column" >
+                  <br></br>
+                  <br></br>
+                  <br></br>
 
                   <div className="cardPregunta">
                     <center>
+
 
                       <h1 className="title">🧐 Hazme Una Pregunta ❓ </h1>                
 
@@ -71,7 +76,7 @@ class Pregunta extends React.Component {
 
 
                           <div className="form-group">                                
-                            <input autoFocus required placeholder=" Pregunta ❓ " type="text" id="pregunta" className="FondoInput" onChange={this.manejarCambio,this.handleChange} value={this.state.dates.user,this.state.text}>
+                            <input autoFocus required placeholder=" Que es Meca? " type="text" id="pregunta" className="FondoInput" onChange={this.manejarCambio,this.handleChange} value={this.state.dates.user,this.state.text}>
                               
                             </input>
                           </div>                         
@@ -115,15 +120,7 @@ class Pregunta extends React.Component {
         const exitoso = await respuesta.json();
 
         if (exitoso) {
-            toast('Usuario guardado 🎮', {
-                position: "top-left",
-                autoClose: 2000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
+            
             this.setState({
                 dates: {
                     pregunta: "",

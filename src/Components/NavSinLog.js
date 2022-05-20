@@ -4,8 +4,7 @@ import logo from "../Images/MECA.jpeg";
 import './Nav.css';
 
 
-
-class Nav extends React.Component {
+class NavSinLog extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -34,8 +33,6 @@ class Nav extends React.Component {
     render() {
         return (
 
-            
-
             <nav className="navbar navbar-expand-lg navbar-transparent navbar-absolute">
                 <div className="container-fluid">
 
@@ -46,15 +43,9 @@ class Nav extends React.Component {
                                 <img alt="" src="https://scontent.fclo11-1.fna.fbcdn.net/v/t39.30808-6/282126803_104040518986308_442681094172047974_n.jpg?_nc_cat=107&ccb=1-6&_nc_sid=09cbfe&_nc_ohc=Y0957uu8E_IAX8BS9hw&_nc_ht=scontent.fclo11-1.fna&oh=00_AT8lTSxJM4Hc_Qc4ST_8d0Vj7wa4i8h4zty9QzutYK88Cg&oe=628A579A" style={{ maxHeight: "80px" }} />
                             </a>
 
-                            {/*<a onClick={this.ocultarMenu} activeclassname="is-active" className="navbar-item" href="/Perfil">Perfil</a>*/}                  
-                            <a onClick={this.ocultarMenu} activeclassname="is-active" className="navbar-item" href="/MenuUsuario">Menu U</a>
-                            <a onClick={this.ocultarMenu} activeclassname="is-active" className="navbar-item" href="/MenuAdministrativo">Menu A</a>
-                            <a onClick={this.ocultarMenu} activeclassname="is-active" className="navbar-item" href="/OpcionesAdministrativas">Opciones Administrativas</a>
-                            <a onClick={this.ocultarMenu} activeclassname="is-active" className="navbar-item" href="/ListarExposicionesVirtuales">Listar Exposiciones</a>
-                            <a onClick={this.ocultarMenu} activeclassname="is-active" className="navbar-item" href="/AdministrarExposiciones">Administrar Exposiciones</a>
-                            <a onClick={this.ocultarMenu} activeclassname="is-active" className="navbar-item" href="/ExposicionesVirtuales">Exposiciones Virtuales</a>
-                            <a onClick={this.ocultarMenu} activeclassname="is-active" className="navbar-item" href="/CrearExposicionesVirtuales">Crear E Virtuales</a>
-                            <a onClick={this.ocultarMenu} activeclassname="is-active" className="navbar-item" href="/Pregunta">Preguntas</a>
+                            <a onClick={this.ocultarMenu} activeclassname="is-active" className="navbar-item" href="/Login">Login</a>
+                            <a onClick={this.ocultarMenu} activeclassname="is-active" className="navbar-item" href="/Registrarse">Registrarse</a>                
+                            <a onClick={this.ocultarMenu} activeclassname="is-active" className="navbar-item" href="/Pregunta">Preguntas❓</a>
                         </div>
 
                         <div className="navbar-end">
@@ -81,4 +72,4 @@ class Nav extends React.Component {
         );
     }
 }
-export default Nav;
+export default NavSinLog;

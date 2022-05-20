@@ -5,18 +5,16 @@ import reportWebVitals from './reportWebVitals';
 
 import 'bulma/css/bulma.css'
 import "./style.css";
-import {
-  HashRouter as Router,
-} from "react-router-dom";
 
-import { Route } from "wouter";
+
+import {BrowserRouter} from "react-router-dom";
 
 ReactDOM.render(
-  <Router>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </Router>,
+  
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+  
   document.getElementById('root')
 );
 

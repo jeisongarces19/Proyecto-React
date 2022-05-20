@@ -1,8 +1,10 @@
 import './App.css';
+import React, {Component} from 'react';
 import "react-router-dom";
 
 import Asistente from './Components/Asistente';
 import Nav from './Components/Nav';
+import NavSinLog from './Components/NavSinLog';
 import Footer from './Components/Footer';
 
 import Colorlayer from './Components/Colorlayer';
@@ -23,19 +25,85 @@ import CrearExposicionesVirtuales from './Pages/ExposicionesVirtuales';
 
 import { Route, Switch } from "wouter";
 
-function App() {
-  return (
-    
-      
-        <div className="">
+class App extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+        
+      logueado: true,
+      user: "",               
+        
+    };
+       
+
+  }
+
+  renderLogin() {
+    return(
+
+      <div className="">
+          
+        <div className="FondoApp" >
+
+          <div className="navproyect">  
+            <NavSinLog></NavSinLog>
+            <Colorlayer></Colorlayer>              
+          </div>
+          
+          <Route path="/">
+              <div className="bodyproyectLogin"> 
+                <Login /> 
+                <Asistente show="Login"></Asistente> 
+              </div>                              
+          </Route>
+
+          <Switch>
+
+            <Route path="/Login">
+              <div className="bodyproyectLogin"> 
+                <Login />
+                <Asistente show="Login"></Asistente> 
+              </div>
+            </Route>
+
+            <Route path="/Registrarse">
+              <div className="bodyproyectRegister">  
+                <Registrarse/>
+                <Asistente show="Login"></Asistente> 
+              </div>
+            </Route>           
+
+            <Route path="/Pregunta">
+              <div className="bodyproyectLogin">  
+                <Pregunta/>
+                <Asistente show="Login"></Asistente>             
+              </div>
+            </Route>
+              
+          </Switch>
+
+          <div className="footerproyect">               
+            <Footer></Footer>              
+          </div>
+          
+        </div>
+      </div>
+
+    );        
+  }
+
+  renderApp(){
+
+    return (
+    
+        <div className="">
           
           <div className="FondoApp" >
 
             <div className="navproyect">  
               <Nav></Nav>
-              <Colorlayer></Colorlayer>
-              
+              <Colorlayer></Colorlayer>              
             </div>
 
             <Route path="/">
@@ -133,29 +201,31 @@ function App() {
                   <Asistente show="Login"></Asistente>             
                 </div>
               </Route>
-
-
-
               
             </Switch>
 
-
-
-
-            <div className="footerproyect"> 
-              
+            <div className="footerproyect">               
               <Footer></Footer>              
             </div>
 
 
-            
-
           </div>
         </div>
       
+    );
 
-    
-  );
+  }
+
+  render(){
+    if(this.state.logueado) {
+      return this.renderApp();
+    }else{
+      return this.renderLogin();
+    }
+  }
+
+
+  
 }
 
 export default App;

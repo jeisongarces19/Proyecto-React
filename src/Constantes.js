@@ -1,4 +1,4 @@
 const Constantes = {
-    RUTA_API: "http://localhost/api-php-react-main",
+    RUTA_API: "https://proyecto-meca-cali.herokuapp.com",
 };
 export default Constantes;

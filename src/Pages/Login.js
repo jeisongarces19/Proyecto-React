@@ -189,8 +189,20 @@ class Login extends React.Component {
 
         const cargaUtil = JSON.stringify(this.state.data);
         console.log(cargaUtil);
+        
+        const config = {
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+          }
+        };
+
+        const respuesta =  await axios.get("https://proyecto-meca-cali.herokuapp.com/", config);
+        console.log("respuesta",respuesta)
+        
       
         //const respuesta = 1;
+        /*
 
         
         fetch(`https://proyecto-meca-cali.herokuapp.com/`, {
@@ -215,7 +227,7 @@ class Login extends React.Component {
             // consider using valid JSON req/resp pairs.
             // return response.json();
         });
-        
+        */
 
         //const exitoso = await respuesta.json();
         //const exitoso = 1;

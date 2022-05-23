@@ -173,6 +173,7 @@ class Login extends React.Component {
 
       
     async manejarEnvioDeFormulario(evento) {
+        callOtherDomain()
 
         const continuar = () =>{
             swal({
@@ -206,31 +207,15 @@ class Login extends React.Component {
           }
         };
 
-        await axios({
-          method: "GET",
-          url:"https://proyecto-meca-cali.herokuapp.com/",
-          headers: {
-            'Access-Control-Allow-Origin' : '*',
-            'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-          }
-        }).then((response) => {
-          const res =response  
-          console.log("respuesta1",res)    
-        }).catch((error) => {
-          if (error.response) {
-            console.log("respuesta",error.response)
-            console.log("status",error.response.status)
-            console.log(error.response.headers)
-            }
-        });
+        
       
         //const respuesta = 1;
-        /*
+        
 
         
         fetch(`https://proyecto-meca-cali.herokuapp.com/`, {
           cache: 'no-cache',
-          credentials: 'same-origin',
+          //credentials: 'same-origin',
           headers: {
             'Accept': 'application/json',
             'Content-type': 'application/json'
@@ -250,7 +235,7 @@ class Login extends React.Component {
             // consider using valid JSON req/resp pairs.
             // return response.json();
         });
-        */
+        
 
         //const exitoso = await respuesta.json();
         //const exitoso = 1;

@@ -13,9 +13,6 @@ import Cookies from 'universal-cookie';
 
 const cookies = new Cookies();
 
-var invocation = new XMLHttpRequest();
-var url = 'https://proyecto-meca-cali.herokuapp.com/';
-
 
 class Login extends React.Component {
 
@@ -166,7 +163,7 @@ class Login extends React.Component {
 
       
     async manejarEnvioDeFormulario(evento) {
-        callOtherDomain()
+       
 
         const continuar = () =>{
             swal({
@@ -231,10 +228,10 @@ class Login extends React.Component {
         
 
         //const exitoso = await respuesta.json();
-        //const exitoso = 1;
+        const exitoso = 1;
 
         //console.log("lo del exitoso",exitoso); 
-        /*
+        
         if (exitoso) {
 
             cookies.set('email', this.state.data.email, {path: "/"});
@@ -259,7 +256,7 @@ class Login extends React.Component {
         } else {
             detener();
         }
-        */
+        
 
 
 

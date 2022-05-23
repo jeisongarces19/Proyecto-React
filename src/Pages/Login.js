@@ -13,7 +13,16 @@ import Cookies from 'universal-cookie';
 
 const cookies = new Cookies();
 
+var invocation = new XMLHttpRequest();
+var url = 'https://proyecto-meca-cali.herokuapp.com/';
 
+function callOtherDomain() {
+  if(invocation) {
+    invocation.open('GET', url, true);
+    //invocation.onreadystatechange = handler;
+    invocation.send();
+  }
+}
 
 class Login extends React.Component {
 
@@ -197,9 +206,23 @@ class Login extends React.Component {
           }
         };
 
-        const respuesta =  await axios.get("https://proyecto-meca-cali.herokuapp.com/", config);
-        console.log("respuesta",respuesta)
-        
+        await axios({
+          method: "GET",
+          url:"https://proyecto-meca-cali.herokuapp.com/",
+          headers: {
+            'Access-Control-Allow-Origin' : '*',
+            'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+          }
+        }).then((response) => {
+          const res =response  
+          console.log("respuesta1",res)    
+        }).catch((error) => {
+          if (error.response) {
+            console.log("respuesta",error.response)
+            console.log("status",error.response.status)
+            console.log(error.response.headers)
+            }
+        });
       
         //const respuesta = 1;
         /*

@@ -216,9 +216,6 @@ class Login extends React.Component {
             // return response.json();
         });
         
-        
-
-        console.log("lo del respuesta",respuesta); 
 
         //const exitoso = await respuesta.json();
         //const exitoso = 1;

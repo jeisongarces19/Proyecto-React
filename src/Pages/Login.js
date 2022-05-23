@@ -19,6 +19,14 @@ var url = 'https://proyecto-meca-cali.herokuapp.com/';
 function callOtherDomain() {
   if(invocation) {
     invocation.open('GET', url, true);
+    invocation.onload = () => {
+      if (invocation.status >= 400) {
+        reject(invocation.response);
+      } else {
+        resolve(invocation.response);
+      }
+      console.log("Lo del xml",response)
+    };
     //invocation.onreadystatechange = handler;
     invocation.send();
   }

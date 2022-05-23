@@ -215,7 +215,7 @@ class Login extends React.Component {
         
         fetch(`https://proyecto-meca-cali.herokuapp.com/`, {
           cache: 'no-cache',
-          //credentials: 'same-origin',
+          credentials: 'same-origin',
           headers: {
             'Accept': 'application/json',
             'Content-type': 'application/json'

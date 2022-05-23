@@ -1,5 +1,7 @@
 
 import Constantes from "../Constantes";
+//import axios from 'axios';
+//import cors from 'cors';
 
 import '../App.css';
 import '../Styles/login.css';
@@ -191,17 +193,38 @@ class Login extends React.Component {
         //const respuesta = 1;
 
         
-        const respuesta = await fetch(`${Constantes.RUTA_API}/Users`);
+        fetch(`https://proyecto-meca-cali.herokuapp.com/`, {
+          cache: 'no-cache',
+          credentials: 'same-origin',
+          headers: {
+            'Accept': 'application/json',
+            'Content-type': 'application/json'
+          },
+          method: 'GET',
+          //mode: 'no-cors',
+          redirect: 'follow',
+          referrer: 'no-referrer',
+        }).then(function (response) {
+            console.log("lo del respuesta",response);
+            if (response.status === 202 || response.status === 201 || response.status === 4) {
+              alert('Se pudo obtener los datos');
+            } else {
+              alert('Hay un error');
+            }
+            // you cannot parse your "success" response, since that is not a valid JSON
+            // consider using valid JSON req/resp pairs.
+            // return response.json();
+        });
         
         
 
         console.log("lo del respuesta",respuesta); 
 
-        const exitoso = await respuesta.json();
+        //const exitoso = await respuesta.json();
         //const exitoso = 1;
 
-        console.log("lo del exitoso",exitoso); 
-
+        //console.log("lo del exitoso",exitoso); 
+        /*
         if (exitoso) {
 
             cookies.set('email', this.state.data.email, {path: "/"});
@@ -226,6 +249,7 @@ class Login extends React.Component {
         } else {
             detener();
         }
+        */
 
 
 

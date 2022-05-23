@@ -16,21 +16,6 @@ const cookies = new Cookies();
 var invocation = new XMLHttpRequest();
 var url = 'https://proyecto-meca-cali.herokuapp.com/';
 
-function callOtherDomain() {
-  if(invocation) {
-    invocation.open('GET', url, true);
-    invocation.onload = () => {
-      if (invocation.status >= 400) {
-        reject(invocation.response);
-      } else {
-        resolve(invocation.response);
-      }
-      console.log("Lo del xml",response)
-    };
-    //invocation.onreadystatechange = handler;
-    invocation.send();
-  }
-}
 
 class Login extends React.Component {
 
@@ -221,7 +206,7 @@ class Login extends React.Component {
         
 
         
-        fetch(`https://proyecto-meca-cali.herokuapp.com/`, {
+        fetch(`https://proyecto-meca-cali.herokuapp.com/Users`, {
           cache: 'no-cache',
           credentials: 'same-origin',
           headers: {

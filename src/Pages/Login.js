@@ -1,7 +1,7 @@
 
 import Constantes from "../Constantes";
-//import axios from 'axios';
-//import cors from 'cors';
+import axios from 'axios';
+import cors from 'cors';
 
 import '../App.css';
 import '../Styles/login.css';

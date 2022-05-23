@@ -201,7 +201,7 @@ class Login extends React.Component {
             'Content-type': 'application/json'
           },
           method: 'GET',
-          //mode: 'no-cors',
+          mode: 'no-cors',
           redirect: 'follow',
           referrer: 'no-referrer',
         }).then(function (response) {

@@ -3,18 +3,20 @@ import React, {Component} from 'react';
 import "react-router-dom";
 
 import Asistente from './Components/Asistente';
-import Nav from './Components/Nav';
 import NavSinLog from './Components/NavSinLog';
+import Nav from './Components/Nav';
 import Footer from './Components/Footer';
 
 import Colorlayer from './Components/Colorlayer';
 
 import Login from './Pages/Login';
 import Registrarse from "./Pages/Registrarse";
+import Pregunta from './Pages/Pregunta';
+
+
 import MenuAdministrativo from './Pages/MenuAdministrativo';
 import MenuUsuario from './Pages/MenuUsuario';
 import Perfil from './Pages/Perfil';
-import Pregunta from './Pages/Pregunta';
 import OpcionesAdministrativas from './Pages/OpcionesAdministrativas';
 import ListarExposicionesVirtuales from './Pages/ListarExposicionesVirtuales';
 import AdministrarExposiciones from './Pages/AdministrarExposiciones';
@@ -23,31 +25,62 @@ import ExposicionesVirtuales from './Pages/ExposicionesVirtuales';
 import CrearExposicionesVirtuales from './Pages/ExposicionesVirtuales';
 
 
+
 import { Route, Switch } from "wouter";
+
+
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
+
+const email2 = cookies.get('email');
+const manager2 = cookies.get('manager');
 
 class App extends React.Component {
 
   constructor(props) {
-    super(props);
-    this.state = {
+        super(props);
+        this.state = {
+            admin:0,
+            Navres:Nav
+        };
+        // Indicarle a las funciones a quién nos referimos con "this"
         
-      logueado: true,
-      user: "",               
-        
-    };
-       
+        this.manejarCambio = this.manejarCambio.bind(this);
+        console.log('email2 '+ email2);
+        console.log('manager2 '+ manager2);
+
 
   }
 
-  renderLogin() {
+  manejarCambio(evento) {
+
+    if(this.state.admin==='1') {
+      this.setState({                     
+            admin : this.state.admin,
+            Navres : Nav
+      });
+    }else{
+      this.setState({                     
+            admin : this.state.admin,
+            Navres : Nav
+      });
+    }
+
+   
+  }
+
+  render() {
     return(
 
+
+
       <div className="">
+
           
         <div className="FondoApp" >
 
           <div className="navproyect">  
-            <NavSinLog></NavSinLog>
+            <this.state.Navres></this.state.Navres>
             <Colorlayer></Colorlayer>              
           </div>
           
@@ -62,7 +95,7 @@ class App extends React.Component {
 
             <Route path="/Login">
               <div className="bodyproyectLogin"> 
-                <Login />
+                <Login action={this.handler}/>
                 <Asistente show="Login"></Asistente> 
               </div>
             </Route>
@@ -80,57 +113,8 @@ class App extends React.Component {
                 <Asistente show="Login"></Asistente>             
               </div>
             </Route>
-              
-          </Switch>
 
-          <div className="footerproyect">               
-            <Footer></Footer>              
-          </div>
-          
-        </div>
-      </div>
-
-    );        
-  }
-
-  renderApp(){
-
-    return (
-    
-        <div className="">
-          
-          <div className="FondoApp" >
-
-            <div className="navproyect">  
-              <Nav></Nav>
-              <Colorlayer></Colorlayer>              
-            </div>
-
-            <Route path="/">
-                <div className="bodyproyectLogin"> 
-                  <Login /> 
-                  <Asistente show="Login"></Asistente> 
-                </div>                              
-            </Route>
-
-            <Switch>
-                         
-
-              <Route path="/Login">
-                <div className="bodyproyectLogin"> 
-                  <Login />
-                  <Asistente show="Login"></Asistente> 
-                </div>
-              </Route>
-
-              <Route path="/Registrarse">
-                <div className="bodyproyectRegister">  
-                  <Registrarse/>
-                  <Asistente show="Login"></Asistente> 
-                </div>
-              </Route>
-
-              <Route path="/Perfil">
+            <Route path="/Perfil">
                 <div className="bodyproyectLogin">
                   <br></br>
                   <br></br>  
@@ -195,37 +179,21 @@ class App extends React.Component {
                 </div>
               </Route>
 
-              <Route path="/Pregunta">
-                <div className="bodyproyectLogin">  
-                  <Pregunta/>
-                  <Asistente show="Login"></Asistente>             
-                </div>
-              </Route>
+
               
-            </Switch>
+          </Switch>
 
-            <div className="footerproyect">               
-              <Footer></Footer>              
-            </div>
-
-
+          <div className="footerproyect">               
+            <Footer></Footer>              
           </div>
+          
         </div>
-      
-    );
+      </div>
 
-  }
-
-  render(){
-    if(this.state.logueado) {
-      return this.renderApp();
-    }else{
-      return this.renderLogin();
-    }
+    );        
   }
 
 
-  
 }
 
 export default App;

@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 
 import 'bulma/css/bulma.css'
 import "./style.css";
+//import cors from 'cors';
 
 
 import {BrowserRouter} from "react-router-dom";

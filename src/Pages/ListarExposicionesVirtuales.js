@@ -78,6 +78,26 @@ class ListarExposicionesVirtuales extends React.Component {
 
     manejarCambio(evento) {
 
+        /*
+        await axios({
+          method: "GET",
+          url:"https://proyecto-meca-cali.herokuapp.com/Users",
+          headers: {
+            'Access-Control-Allow-Origin' : '*',
+            'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+          }
+        }).then((response) => {
+          const res =response  
+          console.log("respuesta1",res)    
+        }).catch((error) => {
+          if (error.response) {
+            console.log("respuesta",error.response)
+            console.log("status",error.response.status)
+            console.log(error.response.headers)
+            }
+        });
+        */
+
         const clave = evento.target.id;
         let valor = evento.target.value;
         this.setState(state => {

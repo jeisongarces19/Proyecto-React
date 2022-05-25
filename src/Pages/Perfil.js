@@ -12,14 +12,14 @@ class Perfil extends React.Component {
         super(props);
         this.state = {
             data: {
-                "nombres": "Jeison Fernando",
-                "primerAprellido": "Garces ",
-                "segundoApellido": "Castañeda",
-                "fechaNacimiento": "1997-10-05",
-                "correo": "garcesjeison17@gmail.com",
-                "pass": "*********",
-                "ubicacion": "Cali,Colombia",
-                "descripcion": "Ingeniero de Sistemas de la PUJ",
+                "name":"Jeison Fernando" ,
+                "last_name_1": "Garces ",
+                "last_name_2": "Castañeda",                
+                "email": "garcesjeison17@gmail.com",
+                "password_hash": "*********",                  
+                "born_date": "1997-10-05",   
+                "describe": "Ingeniero de Sistemas de la PUJ",           
+                "picture":"",
             },
         };
         // Indicarle a las funciones a quién nos referimos con "this"
@@ -41,7 +41,7 @@ class Perfil extends React.Component {
 
                     
                         <div className="photo-container">
-                            <img alt="..." src="https://scontent.fclo8-1.fna.fbcdn.net/v/t1.6435-9/96763841_2560962134004181_6427503684715806720_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=174925&_nc_eui2=AeH3cpBhmPB-hqAaoYFwMxZl0F4KPX8zzBvQXgo9fzPMG9JvJhrlLApTCsCh5sT0YRg2lzYIIr817q1iLfdK6o4W&_nc_ohc=NF6WcE8xaj8AX_UmsOK&_nc_ht=scontent.fclo8-1.fna&oh=00_AT8hhlsjaFUZG9E0nLQKiEpUCRHe4SVqkCB9QPAJZcr5DA&oe=629717C5">
+                            <img alt="..." src=" ">
                             </img>
                         </div>
 
@@ -51,56 +51,57 @@ class Perfil extends React.Component {
                         <ToastContainer></ToastContainer>
 
                       
-                        <form className="fToastContainerield" onSubmit={this.manejarEnvioDeFormulario}>
+                        <form className="" onSubmit={this.manejarEnvioDeFormulario}>
 
                             <div className="form-group">
-                                <input autoFocus required placeholder="🆎 Nombres" type="text" id="nombres" className="FondoInput"  onChange={this.manejarCambio} value={this.state.data.nombres} >
+                                <input autoFocus required placeholder="🆎 Nombre ✔" type="text" id="name" className="FondoInput"  onChange={this.manejarCambio} value={this.state.data.name} >
+                                </input> 
+                            </div>
+
+                            <div className="form-group">
+                                <input required placeholder="🅰️ Primer Aprellido" type="text" id="last_name_1" className="FondoInput"  onChange={this.manejarCambio} value={this.state.data.last_name_1} >
                                 </input>
                             </div>
 
                             <div className="form-group">
-                                <input required placeholder="🅰️ Primer Aprellido" type="text" id="primerAprellido" className="FondoInput"  onChange={this.manejarCambio} value={this.state.data.primerAprellido} >
-                                </input>
-                            </div>
-
-                            <div className="form-group">
-                                <input autoFocus required placeholder="🅱️ Segundo Apellido" type="text" id="segundoApellido"className="FondoInput"  onChange={this.manejarCambio} value={this.state.data.segundoApellido} >
+                                <input autoFocus required placeholder="🅱️ Segundo Apellido" type="text" id="last_name_2"className="FondoInput"  onChange={this.manejarCambio} value={this.state.data.last_name_2} >
                                 </input>
                             </div>                            
                                    
                             <div className="form-group">
-                                <input autoFocus required placeholder="✉️ Email" type="text" id="correo" className="FondoInput"  onChange={this.manejarCambio} value={this.state.data.correo} >
-                                </input>                       
+                                <input autoFocus required placeholder="✉️ Email ✔" type="text" id="email" className="FondoInput"  onChange={this.manejarCambio} value={this.state.data.email} >
+                                </input>                      
                             </div>
 
                             <div className="form-group">
-                                <input required placeholder="🔑 Password" type="text" id="pass" className="FondoInput"  onChange={this.manejarCambio} value={this.state.data.pass}>
-                                </input>
+                                <input required placeholder="🔑 Contraseña ✔" type="password" id="password_hash" className="FondoInput"  onChange={this.manejarCambio} value={this.state.data.password_hash}>
+                                </input> 
                             </div>
 
+                        
                             <div className="form-group">
-                                <input required placeholder="📌 Ubicacion" type="text" id="ubicacion" className="FondoInput"  onChange={this.manejarCambio} value={this.state.data.ubicacion} >
+                                <input required placeholder="📷 Foto (Url)" type="text" id="picture" className="FondoInput"  onChange={this.manejarCambio} value={this.state.data.picture} >
                                 </input>
                             </div>
+                  
+                            <div className="form-group">
+                                <textarea placeholder="☕ Descripcion Personal" className="FondoInput" id="describe"  onChange={this.manejarCambio} value={this.state.data.describe}></textarea>
+                            </div>                            
 
                             <div className="form-group">
-                                <input required placeholder="☕ Descripcion Personal" type="text" id="descripcion" className="FondoInput"  onChange={this.manejarCambio} value={this.state.data.descripcion}>
-                                </input>
-                            </div>  
-
-                            <div className="form-group">
-                                <input autoFocus required placeholder="📅 Fecha de Nacimiento" type="date" id="fechaNacimiento" className="FondoInput"  onChange={this.manejarCambio} value={this.state.data.fechaNacimiento}  >
+                                <input autoFocus required placeholder="📅 Fecha de Nacimiento" type="datetime-local" id="born_date" className="FondoInput"  onChange={this.manejarCambio} value={this.state.data.born_date}  >
                                 </input>
                             </div> 
 
                             <div className="form-group">
                                 <button className="button is-primary mt-2">
-                                    Actualizar informacion
+                                    Actualizar Información
                                 </button>
 
                                 
-                            </div>                    
-                        
+                            </div>    
+
+                            
                         </form>
                         </center>
                     </div>
@@ -145,14 +146,14 @@ class Perfil extends React.Component {
             });
             this.setState({
                 data: {
-                    nombres: "",
-                    primerAprellido: "",
-                    segundoAprellido: "",
-                    fechaNacimiento: "",
-                    correo: "",
-                    pass: "",
-                    ubicacion: "",
-                    descripcion: "",
+                    name: "",
+                    last_name_1: "",
+                    last_name_2: "",                
+                    email: "",
+                    password_hash: "",                  
+                    born_date: "",   
+                    describe: "",           
+                    picture:"",
                 }
             });
         } else {

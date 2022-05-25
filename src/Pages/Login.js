@@ -1,5 +1,7 @@
 
-import Constantes from "../Constantes";
+//import Constantes from "../Constantes";
+//import axios from 'axios';
+//import cors from 'cors';
 
 import '../App.css';
 import '../Styles/login.css';
@@ -7,10 +9,25 @@ import swal from 'sweetalert';
 
 import React from 'react';
 
-import Cookies from 'universal-cookie';
+//import Cookies from 'universal-cookie';
+//const cookies = new Cookies();
 
-const cookies = new Cookies();
+/*
+var invocation = new XMLHttpRequest();
 
+
+var url = 'https://proyecto-meca-cali.herokuapp.com/Login';
+
+
+function callOtherDomain() {
+
+  if(invocation) {
+    invocation.open('POST', url, true);
+    //invocation.onreadystatechange = handler;
+    invocation.send();
+  }
+}
+*/
 
 
 class Login extends React.Component {
@@ -21,16 +38,15 @@ class Login extends React.Component {
         this.state = {
             data: {
                 "email": "",
-                "password": "",
-                "manager" : false,
-                "user" : true,
+                "password_hash": "",
+                //"manager" : false,               
             },
         };
         // Indicarle a las funciones a quién nos referimos con "this"
         
         this.manejarCambio = this.manejarCambio.bind(this);
         this.manejarEnvioDeFormulario = this.manejarEnvioDeFormulario.bind(this);
-        this.handleSwitchChange = this.handleSwitchChange.bind(this);
+        //this.handleSwitchChange = this.handleSwitchChange.bind(this);
 
 
     }
@@ -48,7 +64,7 @@ class Login extends React.Component {
                   <div className="card2">
                     <center>
 
-                      <h1 className="is-size-1 colorletra">Iniciar Sesion</h1>              
+                      <h1 className="loginletra">INICIAR SESIÓN</h1>              
                       
                       <form className="" onSubmit={this.manejarEnvioDeFormulario}>
 
@@ -59,11 +75,12 @@ class Login extends React.Component {
                           </div>
                           
                           <div className="form-group">
-                              <input required placeholder="🔑 Password" type="password" id="password" className="FondoInput" onChange={this.manejarCambio} value={this.state.data.password} >
+                              <input required placeholder="🔑 password" type="password" id="password_hash" className="FondoInput" onChange={this.manejarCambio} value={this.state.data.password_hash} >
                               </input>
                           </div>
 
-                          <div className="form-group">
+                          
+                           {/*  <div className="form-group">
                             <label style={{color: 'black'}}> User <span> </span> 
                                 <input type="checkbox" 
                                 name="user" 
@@ -89,7 +106,7 @@ class Login extends React.Component {
                           </div>
                           
                           
-                          {/*  
+                         
 
                           <label>
                                 <input
@@ -138,12 +155,13 @@ class Login extends React.Component {
         );
     }
 
-    async handleSwitchChange(event){
+    /*async handleSwitchChange(event){
+
         if(event.target.checked === false){
             this.setState({
                 data: {
                     email: this.state.data.email,
-                    password: this.state.data.password,
+                    password_hash: this.state.data.password_hash,
                     manager: event.target.checked,                    
                 }
             })
@@ -152,16 +170,22 @@ class Login extends React.Component {
             this.setState({
                 data: {
                     email: this.state.data.email,
-                    password: this.state.data.password,
+                    password_hash: this.state.data.password_hash,
                     manager: event.target.checked,                   
                     
                 }
             })
         }
     }
+    */
 
       
     async manejarEnvioDeFormulario(evento) {
+
+        evento.preventDefault();  
+        //callOtherDomain();
+        
+
 
         const continuar = () =>{
             swal({
@@ -169,7 +193,13 @@ class Login extends React.Component {
               text: "Puedes comenzar con el recorrido",
               icon: "success",                        
             }).then(function() {
-                window.location = "/MenuUsuario";
+                if (existe.admin===1) {                    
+                    window.location = "/MenuAdministrativo";
+                }else{
+                    window.location = "/MenuUsuario";
+                }
+
+                
             });
         }
 
@@ -178,50 +208,145 @@ class Login extends React.Component {
               title: "Error",
               text: "Surgio un error al iniciar sesion",
               icon: "error",
-              timer: 2000,
+              timer: 5000,
             });
         }
+    
+        /*
+
+        componentDidMount(){
+            const Url_Base = ConfigData.BASE_URL
+            const resource = ConfigData.PAPERS_SOURCE
+            axios.get(Url_Base+resource)
+            .then( response => {
+              var a = this.createStructure(response.data.results.bindings)
+              var b  = this.yearPublication(a)
+              this.setState({resultGeneral :  a })
+              this.setState({yearLine : b })
+              this.Autors(response.data.results.bindings)
+            })
+        }
+
+        */
 
         
-        evento.preventDefault();       
 
         const cargaUtil = JSON.stringify(this.state.data);
         console.log(cargaUtil);
-      
-        //const respuesta = 1;
 
+
+        /*
+        var GuardarUser;
+
+        //const respuesta= 
+        await axios({
+          method: "POST",
+          url:"https://proyecto-meca-cali.herokuapp.com/Login",
+          headers: {
+            'Content-Type' : 'application/json',
+            'accept': 'application/json',
+            'Access-Control-Allow-Origin' : 'POST',
+            'Access-Control-Allow-Methods':'POST',
+          }
+        },{"email":"santiflo17@gmail.com","password_hash":"hola1234"}).then((response) => {          
+          console.log("respuesta",response)
+          GuardarUser= response.data;   
+           console.log("Datos",GuardarUser)
+        }).catch((error) => {
+          if (error.response) {
+            console.log("error respuesta",error.response)
+            console.log("status",error.response.status)
+            console.log(error.response.headers)
+            }
+        });
+        */
         
-        const respuesta = await fetch(`${Constantes.RUTA_API}/Users`, 
+
+        /*
+
+        await axios({
+          method: "GET",
+          url:"https://proyecto-meca-cali.herokuapp.com/Login",
+          headers: {
+            'Access-Control-Allow-Origin' : '*',
+            'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+          }
+        }).then((response) => {
+          const res =response  
+          console.log("respuesta1",res)    
+        }).catch((error) => {
+          if (error.response) {
+            console.log("respuesta",error.response)
+            console.log("status",error.response.status)
+            console.log(error.response.headers)
+            }
+        });  
+
+        */ 
+
+
+        var respuesta = await fetch(`https://proyecto-meca-cali.herokuapp.com/Login`, 
         {
             method: "POST",            
-            body: cargaUtil,
+            body: cargaUtil,   
         });
+
+        console.log("respuesta de todo",respuesta) 
+                
         
-        
+        /*await fetch(`https://proyecto-meca-cali.herokuapp.com/Login`, {
+          cache: 'no-cache',
+          credentials: 'same-origin',
+          headers: {
+            'Accept': 'application/json',
+            'Content-type': 'application/json'
+          },
+          method: 'GET',
+          mode: 'cors',
+          redirect: 'follow',
+          referrer: 'no-referrer',
+        }).then(response => response.json()){
+            //then(function (response) {
+            console.log("lo del respuesta",response);
 
-        console.log("lo del respuesta",respuesta); 
+            if (response.status === 200) {
+              alert('Se pudo obtener los datos');
+            } else {
+              alert('Hay un error');
+            }
+            // you cannot parse your "success" response, since that is not a valid JSON
+            // consider using valid JSON req/resp pairs.
+            // return response.json();
+        });*/
 
-        const exitoso = await respuesta.json();
-        //const exitoso = 1;
+        var a = 1; //admin = 1 y user =0
 
-        console.log("lo del exitoso",exitoso); 
+        var existe;
+        var statusr=respuesta.status;  //donde guarda el estatus      
 
-        if (exitoso) {
-
-            cookies.set('email', this.state.data.email, {path: "/"});
-            cookies.set('manager', this.state.data.manager, {path: "/"});
-
-
+        if (statusr===202) {
+            existe= await respuesta.json();
+            console.log("GuardarUser",existe) 
+            console.log("datos",existe.admin)
             
             this.setState({
                 data: {
                     email: "",
-                    password: "",
-                    manager: false,                   
+                    password_hash: "",
+                    //manager: false,                   
                 }
             });
-
-            
+            if (existe.admin===1) {
+                //cookies.set('email', this.state.data.email, {path: "/"});
+                //cookies.set('manager', this.state.data.manager, {path: "/"});
+                //cookies.set('manager', 2, {path: "/"});
+                a=1;
+            }else{
+                //cookies.set('email', this.state.data.email, {path: "/"});
+                //cookies.set('manager',4, {path: "/"});
+                a=0;
+            }
+        
            
             //alert(`Bienvenido ${this.state.data.email}`);
             
@@ -230,7 +355,6 @@ class Login extends React.Component {
         } else {
             detener();
         }
-
 
 
     }

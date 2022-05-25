@@ -3,27 +3,30 @@ import React from 'react';
 import swal from 'sweetalert';
 
 import '../App.css';
+import '../Styles/registrarse.css';
 
 class Registrarse extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             data: {
-                "nombres": "",
-                "primerAprellido": "",
-                "segundoApellido": "",                
-                "correo": "",
-                "pass": "",
-                "ubicacion": "",
-                "foto":"",
-                "descripcion": "",
-                "fecha": "",
+                "name": "" ,
+                "last_name_1": "",
+                "last_name_2": "",                
+                "email": "",
+                "password_hash": "",                  
+                "born_date": "",   
+                "describe": "",           
+                "picture":"",
+                
+                
                 
             },
         };
         // Indicarle a las funciones a quién nos referimos con "this"
         this.manejarEnvioDeFormulario = this.manejarEnvioDeFormulario.bind(this);
         this.manejarCambio = this.manejarCambio.bind(this);
+        
     }
     render() {
         return (
@@ -36,51 +39,47 @@ class Registrarse extends React.Component {
                     <div className="card2">
                         <center>
 
-                        <h1 className="is-size-1 colorletra">Registrarse</h1>                
+                        <h1 className="registerletra">REGISTRARSE</h1>                
                       
                         <form className="" onSubmit={this.manejarEnvioDeFormulario}>
 
                             <div className="form-group">
-                                <input autoFocus required placeholder="🆎 Nombres" type="text" id="nombres" className="FondoInput"  onChange={this.manejarCambio} value={this.state.data.nombres} >
+                                <input autoFocus required placeholder="🆎 Nombre ✔" type="text" id="name" className="FondoInput"  onChange={this.manejarCambio} value={this.state.data.name} >
+                                </input> 
+                            </div>
+
+                            <div className="form-group">
+                                <input required placeholder="🅰️ Primer Aprellido" type="text" id="last_name_1" className="FondoInput"  onChange={this.manejarCambio} value={this.state.data.last_name_1} >
                                 </input>
                             </div>
 
                             <div className="form-group">
-                                <input required placeholder="🅰️ Primer Aprellido" type="text" id="primerAprellido" className="FondoInput"  onChange={this.manejarCambio} value={this.state.data.primerAprellido} >
-                                </input>
-                            </div>
-
-                            <div className="form-group">
-                                <input autoFocus required placeholder="🅱️ Segundo Apellido" type="text" id="segundoApellido"className="FondoInput"  onChange={this.manejarCambio} value={this.state.data.segundoApellido} >
+                                <input autoFocus required placeholder="🅱️ Segundo Apellido" type="text" id="last_name_2"className="FondoInput"  onChange={this.manejarCambio} value={this.state.data.last_name_2} >
                                 </input>
                             </div>                            
                                    
                             <div className="form-group">
-                                <input autoFocus required placeholder="✉️ Email" type="text" id="correo" className="FondoInput"  onChange={this.manejarCambio} value={this.state.data.correo} >
-                                </input>                       
+                                <input autoFocus required placeholder="✉️ Email ✔" type="text" id="email" className="FondoInput"  onChange={this.manejarCambio} value={this.state.data.email} >
+                                </input>                      
                             </div>
 
                             <div className="form-group">
-                                <input required placeholder="🔑 Password" type="text" id="pass" className="FondoInput"  onChange={this.manejarCambio} value={this.state.data.pass}>
-                                </input>
+                                <input required placeholder="🔑 Contraseña ✔" type="password" id="password_hash" className="FondoInput"  onChange={this.manejarCambio} value={this.state.data.password_hash}>
+                                </input> 
                             </div>
 
+                        
                             <div className="form-group">
-                                <input required placeholder="📌 Ubicacion" type="text" id="ubicacion" className="FondoInput"  onChange={this.manejarCambio} value={this.state.data.ubicacion} >
-                                </input>
-                            </div>
-
-                            <div className="form-group">
-                                <input required placeholder="📷 Foto (Url)" type="text" id="foto" className="FondoInput"  onChange={this.manejarCambio} value={this.state.data.foto} >
+                                <input required placeholder="📷 Foto (Url)" type="text" id="picture" className="FondoInput"  onChange={this.manejarCambio} value={this.state.data.picture} >
                                 </input>
                             </div>
                   
                             <div className="form-group">
-                                <textarea placeholder="☕ Descripcion Personal" className="FondoInput" id="descripcion"  onChange={this.manejarCambio} value={this.state.data.descripcion}></textarea>
+                                <textarea placeholder="☕ Descripcion Personal" className="FondoInput" id="describe"  onChange={this.manejarCambio} value={this.state.data.describe}></textarea>
                             </div>                            
 
                             <div className="form-group">
-                                <input autoFocus required placeholder="📅 Fecha de Nacimiento" type="date" id="fecha" className="FondoInput"  onChange={this.manejarCambio} value={this.state.data.fechaNacimiento}  >
+                                <input autoFocus required placeholder="📅 Fecha de Nacimiento" type="datetime-local" id="born_date" className="FondoInput"  onChange={this.manejarCambio} value={this.state.data.born_date}  >
                                 </input>
                             </div> 
 
@@ -90,7 +89,9 @@ class Registrarse extends React.Component {
                                 </button>
 
                                 
-                            </div>                    
+                            </div>    
+
+                            <p className="colorblanco"> Campos obligatorios (✔)</p>                
                         
                         </form>
                         </center>
@@ -103,6 +104,9 @@ class Registrarse extends React.Component {
 
         );
     }
+    
+
+   
 
 
     async manejarEnvioDeFormulario(evento) {
@@ -112,6 +116,8 @@ class Registrarse extends React.Component {
               title: "Registro",
               text: "Tu usuario ha sido creado",
               icon: "success",              
+            }).then(function() {
+                window.location = "/Login";
             });
         }
 
@@ -129,43 +135,41 @@ class Registrarse extends React.Component {
             });
         }
 
+
         evento.preventDefault();
        
         const cargaUtil = JSON.stringify(this.state.data);
         console.log(cargaUtil);   
 
-        /*
-        const respuesta = await fetch(`${Constantes.RUTA_API}/Guardar_user`, 
+        var respuesta = await fetch(`https://proyecto-meca-cali.herokuapp.com/CrearUsuario`, 
         {
             method: "POST",            
-            body: cargaUtil,
+            body: cargaUtil,   
         });
-        */        
 
-        /*console.log("lo del respuesta",respuesta); 
-
-        const exitoso = await respuesta.json();*/
-        const exitoso = 1;
-
-        console.log("lo del exitoso",exitoso); 
+        console.log("respuesta de todo",respuesta) 
 
 
-        if (exitoso) {
-            continuar();           
+       
+        var statusr=respuesta.status;     
 
+        if (statusr===201) {
+           
             this.setState({
                 data: {
-                    "nombres": "",
-                    "primerAprellido": "",
-                    "segundoApellido": "",                
-                    "correo": "",
-                    "pass": "",
-                    "ubicacion": "",
-                    "foto":"",
-                    "descripcion": "",
-                    "fecha": "",
+                    "name": "",
+                    "last_name_1": "",
+                    "last_name_2": "",                
+                    "email": "",
+                    "password_hash": "",                  
+                    "born_date": "",   
+                    "describe": "",           
+                    "picture":"",
                 }
             });
+
+            continuar(); 
+
         } else {        
             detener();
         }

@@ -43,7 +43,7 @@ class Nav extends React.Component {
                         <div className="navbar-start">
                             
                             <a className="navbar-item" href="https://docs.google.com/presentation/d/1UOnBR8NfVH54pV1RtceFkTClDYGvSHqzvgxnMOZDCwY/edit#slide=id.g1110f674df1_1_13">                        
-                                <img alt="" src="https://scontent.fclo11-1.fna.fbcdn.net/v/t39.30808-6/282126803_104040518986308_442681094172047974_n.jpg?_nc_cat=107&ccb=1-6&_nc_sid=09cbfe&_nc_ohc=Y0957uu8E_IAX8BS9hw&_nc_ht=scontent.fclo11-1.fna&oh=00_AT8lTSxJM4Hc_Qc4ST_8d0Vj7wa4i8h4zty9QzutYK88Cg&oe=628A579A" style={{ maxHeight: "80px" }} />
+                                <img alt="" src="https://scontent.fclo11-1.fna.fbcdn.net/v/t39.30808-6/283981365_4708098919290481_7876560140414713511_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeFQeSf7R376yy2Vo60iC6USSAVlBdSO2GpIBWUF1I7Yat547sW9Ln8Kb68T1FBWAUt1kSF7WfQbQb7gMDP8evqJ&_nc_ohc=0GfyuESbOAQAX8-lgqv&_nc_ht=scontent.fclo11-1.fna&oh=00_AT_EuTg3NphMZ0KO9_mi8is4ekL30XpB2hU17Jtw2GZ4kg&oe=6290CDBA" style={{ maxHeight: "80px" }} />
                             </a>
 
                             {/*<a onClick={this.ocultarMenu} activeclassname="is-active" className="navbar-item" href="/Perfil">Perfil</a>*/}                  

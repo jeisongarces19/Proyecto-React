@@ -67,7 +67,7 @@ class Pregunta extends React.Component {
                     <center>
 
 
-                      <h1 className="title">🧐 Hazme Una Pregunta ❓ </h1>                
+                      <h1 className="preguntaletra">🧐 REALIZA TU PREGUNTA ❓ </h1>                
 
                       <ToastContainer></ToastContainer>
                       <TodoList items={this.state.items} />

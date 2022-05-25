@@ -7,7 +7,7 @@ class MenuAdministrativo extends React.Component {
         super(props);
         this.state = {
             data: {
-                id: "", 
+                "email": "jeison",
                 "foto": "https://scontent.fclo11-1.fna.fbcdn.net/v/t1.18169-9/1384215_422278761205873_1173186583_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=de6eea&_nc_eui2=AeEh-UvJBWP9GEj77TCs_k7Tr332_7LWLAuvffb_stYsCyo5vsFNUrF9170NaGITkXNdAFpFYLxOaJjvit9IZvpd&_nc_ohc=nP6PHZ50xiUAX-5a_-0&_nc_ht=scontent.fclo11-1.fna&oh=00_AT9sh6WaG_yO7-ZGXfkvImh7A5MEuVmocA4N85IZcDK5OA&oe=62AAB0CF",                        
             },
         };
@@ -22,7 +22,7 @@ class MenuAdministrativo extends React.Component {
 
         this.setState({
           data: {
-              id: this.state.data.id,
+              email: this.state.data.email,
               foto: this.state.data.foto,
           }
         });
@@ -45,7 +45,7 @@ class MenuAdministrativo extends React.Component {
                             </img>
                       </div>
 
-                      <h1 className="title">¡Bienvenido al Menu Administrativo!</h1>  
+                      <h1 className="menuletra">¡BIENVENIDO {this.state.data.email.toUpperCase()}!</h1>  
                      
                       <div className="separador">
 

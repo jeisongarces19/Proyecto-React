@@ -144,7 +144,7 @@ function Comentarios(props){
         {comentario.map ((comentario, i) => (
         <div key={i}>  
             <p>id:{comentario.id}</p>
-            <h1>{comentario.text}</h1> 
+            <h1>{comentario.comment}</h1> 
         </div>
         ))}        
     </div>

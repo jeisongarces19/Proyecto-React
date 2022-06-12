@@ -1,0 +1,339 @@
+/* aqui es para la estructura del prototipo 1 */
+
+.cardtituloP {
+    
+    max-width: min-content;
+    position: relative;
+    padding: 10px 10px 10px;
+    /* flex-direction: initial; */
+    background-color: #ffffffcc;
+    /* background-clip: border-box; */
+    border: 1px solid rgb(0 0 0);
+    border-radius: 1.25rem;
+    /* flex-wrap: wrap; */
+    /* align-content: space-around; */
+    /* justify-content: center; */
+}
+
+.ExposicionletraT{
+    font-size: 2.5rem !important;
+    font-family: math;
+    color: #000000;
+    text-align: center;
+}
+
+
+.cardsubtituloP {
+    width: max-content;
+    position: relative;
+    padding: 10px 6px 10px;
+    /* flex-direction: initial; */
+    background-color: #ffffffcc;
+    /* background-clip: border-box; */
+    border: 1px solid rgb(0 0 0 / 72%);
+    border-radius: 1.35rem;
+    /* flex-wrap: wrap; */
+    /* align-content: space-around; */
+    /* justify-content: center; */
+}
+
+.ExposicionletraS{
+    font-size: 1.45rem !important;
+    font-family: math;
+    color: #000000;
+    text-align: center;
+}
+
+
+.cardDescription {
+    max-width:700px;
+    position: relative;
+    padding: 15px 15px 1px;
+    /* flex-direction: initial; */
+    background-color: #ffffffcc;
+    /* background-clip: border-box; */
+    border: 1px solid rgb(0 0 0 / 72%);
+    border-radius: 1.35rem;
+    /* flex-wrap: wrap; */
+    /* align-content: space-around; */
+    /* justify-content: center; */
+}
+
+.ExposicionletraD{
+    font-size: 1.2rem !important;
+    font-family: math;
+    color: #000000;
+    text-align: center;
+}
+
+.cardaudio{
+    /*max-width: 300px;*/
+    max-width: max-content;
+    position: relative;
+    /* padding: 15px 15px 1px; */
+    /* flex-direction: initial; */
+    background-color: #ffffffcc;
+    /* background-clip: border-box; */
+    border: 1px solid rgb(0 0 0 / 72%);
+    border-radius: 1.35rem;
+    /* flex-wrap: wrap; */
+    /* align-content: space-around; */
+    /* justify-content: center; */
+
+}
+
+
+
+.ExposicionletraC{
+    font-size: 1.2rem !important;
+    font-family: math;
+    color: #000000;
+    text-align: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.Recuperacion{
+	color: black;
+    background-color: #ffffff00;
+    cursor: pointer;
+}
+
+.central{
+    padding: 40px 0px 80px;
+    
+}
+
+.button.is-success {
+    background-color: #48a4c7c7;
+    border-color: #0000003b;
+    color: #fff;
+    border-radius: 8px
+}
+
+.button.is-primary {
+    background-color: #48a4c7c7;
+    border-color: #0000003b;
+    color: #fff;
+    border-radius: 8px
+}
+
+
+
+
+
+
+
+
+.playlist-unit2 {
+    background-color: #0e1a3e8c;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.playlist-unit-inner2 {
+    position: relative;
+    background-color: #4397a540;
+    border-radius: 5px;
+    color: #FFF;
+}
+
+.list-indicators {
+    position: relative;
+    display: block;
+    text-align: center;
+    font-size: .8em;
+    padding: 3px 0;
+}
+
+.list-indicators .ind.active .ind:hover {
+    background-color: #fff;
+}
+
+.ind {
+    position: relative;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #1C91C0;
+    margin: 0 3px;
+}
+
+.bibliografia {
+    /* aqui es la bibliografia*/
+    
+    background: #e0dcff;
+    max-width: 320px;
+    text-align: center;
+    margin: 5px;
+}
+.boxx{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400;
+    bgcolor: background.paper;
+    brder: 2px solid #000;
+    boxShadow: 24;
+    p: 4;
+    width: 90%;
+}
+
+
+
+.img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-position: center center;
+    border-radius: 5px;
+    background-image: url(https://img.youtube.com/vi/NwuT87AMtCk/default.jpg);
+    cursor: pointer;
+}
+
+.v-thumb {
+    position: relative;
+    width: 100%;
+    height: 70px;
+    /* background-color: #000; */
+    /* border-radius: 5px; */
+    /* overflow: hidden; */
+}
+
+.playlist .listing {
+    position: relative;
+    margin: 0 37px;
+    min-height: 140px;
+    overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.contenedor{
+    position: relative;
+    padding-top: 50%;
+}
+
+.react-player{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 5px 5px 8px;
+    background-color: darkblue;
+}
+
+.audio{
+    position: fixed;
+    top: 20%;
+    left: 0;
+}
+
+
+.photo-container2 {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto;
+    box-shadow: 0 10px 25px 0 rgb(0 0 0 / 30%);
+    transition: box-shadow .4s,-webkit-transform .4s;
+    transition: transform .4s,box-shadow .4s,-webkit-transform .4s;
+    background-color: transparent;
+  
+}
+
+
+.cardPregunta2{
+    position: relative;
+    display: flex;
+    padding: 20px 10px 25px;
+    /* flex-direction: column; */
+    background-color: #ffffffcc;
+    /* background-clip: border-box; */
+    border: 1px solid rgb(0 0 0 / 58%);
+    border-radius: 1.25rem;
+    /* flex-wrap: wrap; */
+    /* align-content: space-around; 
+    top: 100px;*/
+    justify-content: center;
+    
+}
+
+.title {
+    font-weight: 700;
+    color: #000;
+    text-align: center;
+}
+
+.figura{
+
+    border-radius: 50px;
+    background-color: #2dabdbc7;
+    position: fixed;
+    justify-content: center;
+}
+
+
+
+
+
+.fondobac{
+  /*background-image: url("https://scontent.fclo11-1.fna.fbcdn.net/v/t31.18172-8/26233828_738222389708384_7813581133273196225_o.jpg?_nc_cat=110&ccb=1-7&_nc_sid=e3f864&_nc_eui2=AeGot4jlSLhpspSS0viVMtV6eZppP3A2hsN5mmk_cDaGw7RHbBQfhMw4MH6vRqyn5Cp44ufO4h8trFhWpaO5HgO8&_nc_ohc=GLjLjSRzJuEAX-6ZSBq&_nc_ht=scontent.fclo11-1.fna&oh=00_AT9h8jWgvSacye-WJboE_TXLsFBfqPqE20ndrLmYwHv8aA&oe=62C40AB6");
+   position: inherit;
+  overflow: hidden;
+  display: block;
+  background-color: rgb(0 137 255);*/
+  background-size: cover;
+  background-position: 50%;
+  width: 100%;
+  height: 100%;
+  padding: 0;  
+  
+  left: 0;
+  top: 0;
+  
+  min-height: 100vh;
+  background-attachment: fixed;
+}
+
+
+
+
+
+.cardComentario {
+    position: relative;
+    padding: 15px 15px 1px;
+    /* flex-direction: initial; */
+    background-color: #ffffffcc;
+    /* background-clip: border-box; */
+    border: 1px solid rgb(0 0 0 / 72%);
+    border-radius: 1.35rem;
+    /* flex-wrap: wrap; */
+    /* align-content: space-around; */
+    /* justify-content: center; */
+}
+

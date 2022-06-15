@@ -2,6 +2,7 @@
 import React,{useState} from 'react';
 //import Constantes from "../Constantes";
 
+import 'react-toastify/dist/ReactToastify.css';
 import '../App.css';
 import '../Styles/administrarExposiciones.css';
 
@@ -13,17 +14,19 @@ import styles from '../styles.module.scss';
 import Cookies from 'universal-cookie';
 const cookies = new Cookies();
 
+
+//const id_ser3 = parseInt(cookies.get('idUser'));
+
+
 //const email3 = cookies.get('email');
 //const admin3 = cookies.get('adminis');
-const id_ser3 = parseInt(cookies.get('idUser'));
-
 
 function ObservarDirecto(props) { 
     cookies.set('idexpo', props, {path: "/"});
     const continuar = () =>{
         swal({
-          title: "¡Felicitaciones!",
-          text: "¡Ahora podras acceder a esta exposición!"+props+ "",
+          title: "Hola!",
+          text: "Ahora podras ver la exposicion "+props+ "",
           icon: "success",                        
         }).then(function() {            
             window.location = "/ExposicionesVirtuales";            
@@ -35,32 +38,25 @@ function ObservarDirecto(props) {
 }
 
 
-
 function PaginasExposiciones (props) {
   const [pagina, setPagina] = useState (1);
-  
-  var tam;
-  var mq = window.matchMedia( "(min-width: 600px)" );
 
+
+  var mq = window.matchMedia( "(min-width: 600px)" );
+  var tam;
+  
   if(mq.matches) {
     tam=3;
   }else {
     tam=2;
   }
-
-  //console.log("tamaño",tam)
-
-  var [porPagina] = useState (tam);
-
-
+  
+  const [porPagina] = useState (tam);
   const Expo=props.todo;
   //console.log("Lo que llega a paginar paginas",Expo)
-
   const maximo = Expo.length / porPagina;
-
   //console.log("maximo",maximo)
-
-  return (
+  return (    
     <div className={styles.container}>
       <div className={styles.containerPoke}>
       {Expo.slice (
@@ -68,7 +64,6 @@ function PaginasExposiciones (props) {
         (pagina - 1) * porPagina + porPagina
       ).map ((Expo, i) => (
         <div key={i} className={styles.pokeContainer}>
-
 
             <button id="expo" onClick={() => ObservarDirecto(Expo.id)}>
 
@@ -79,6 +74,8 @@ function PaginasExposiciones (props) {
               <p >{Expo.title}</p>  
             </button>
 
+            
+
         </div>
       ))}
       </div>
@@ -89,45 +86,8 @@ function PaginasExposiciones (props) {
 }
 
 
-/*
 
-function PaginasExposiciones (props) {
-  const [pagina, setPagina] = useState (1);
-  const [porPagina, setPorPagina] = useState (3);
-
-  //console.log("Lo que llega a paginar paginas",props.todo)
-  //console.log("Lo del pokemon",Pokemons)
-
-  const maximo = Pokemons.length / porPagina;
-
-  return (
-    <div className={styles.container}>
-      <div className={styles.containerPoke}>
-      {Pokemons.slice (
-        (pagina - 1) * porPagina,
-        (pagina - 1) * porPagina + porPagina
-      ).map ((pokemon, i) => (
-        <div key={i} className={styles.pokeContainer}>
-          <h3>{pokemon.id}</h3>  
-          <div className={styles.imgContainer}>          
-            <img src={pokemon.img} alt={pokemon.name} />
-
-          </div>
-          <p >{pokemon.name}</p>  
-          <button > x </button>
-          
-        </div>
-      ))}
-      </div>
-
-      <Paginacion pagina={pagina} setPagina={setPagina} maximo={maximo} />
-    </div>
-  );
-}
-*/
-
-
-class AdministrarExposiciones extends React.Component {
+class ListarExposicionesVirtuales extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -141,11 +101,8 @@ class AdministrarExposiciones extends React.Component {
 
         this.componentDidMount1 = this.componentDidMount1.bind(this);
         this.componentDidMount2 = this.componentDidMount2.bind(this);
-        this.manejarCambio = this.manejarCambio.bind(this);  
-        this.editarExposicion = this.editarExposicion.bind(this);
+        this.manejarCambio = this.manejarCambio.bind(this);        
         this.observarExposicion = this.observarExposicion.bind(this);
-        this.eliminarExposicion = this.eliminarExposicion.bind(this);      
-        
     }
 
     async componentDidMount1() {
@@ -160,8 +117,6 @@ class AdministrarExposiciones extends React.Component {
 
         if (statusr===200) {
             existe= await respuesta.json(); 
-
-            console.log(existe)
             
             this.setState({
                 data: {
@@ -190,7 +145,6 @@ class AdministrarExposiciones extends React.Component {
 
             if (statusr===200) {
                 existe2= await respuesta2.json(); 
-                console.log(existe2)
                 
                 this.setState({
                     data: {
@@ -209,11 +163,11 @@ class AdministrarExposiciones extends React.Component {
             });            
             
             var existe;
-            var statusrr;
-            statusrr=respuesta.status;  
+            var statusrr=respuesta.status;  
 
             if (statusrr===200) {
-                existe= await respuesta.json();                 
+                existe= await respuesta.json(); 
+                
                 this.setState({
                     data: {
                         id:  this.state.data.id, 
@@ -245,7 +199,7 @@ class AdministrarExposiciones extends React.Component {
                         <br></br>
 
                         <div className="form-group">                                
-                            <input autoFocus required placeholder="Buscar Por Titulo" type="text" id="busqueda" className="FondoInput" onChange={this.manejarCambio} value={this.state.data.busqueda} >
+                            <input autoFocus required placeholder="Buscar Titulo" type="text" id="busqueda" className="FondoInput" onChange={this.manejarCambio} value={this.state.data.busqueda} >
                             </input>
                         </div>
 
@@ -256,7 +210,7 @@ class AdministrarExposiciones extends React.Component {
                         </div>
 
                         {this.state.data.BusquedaExposicion.length===0 ?(
-                            <h3>Presionar en Mostrar Exposiciones...</h3>
+                            <h3>Cargando: Presione Mostrar Exposiciones...</h3>
                             ):( 
                                 <PaginasExposiciones todo={this.state.data.BusquedaExposicion}></PaginasExposiciones>                                                      
                             )
@@ -265,7 +219,7 @@ class AdministrarExposiciones extends React.Component {
                         <br></br>
                         
                         <div className="form-group">                                
-                            <input autoFocus required placeholder="Escriba el ID: " type="number" id="id" className="FondoInput" onChange={this.manejarCambio} value={this.state.data.id} >
+                            <input autoFocus required placeholder="Escriba el ID" type="text" id="id" className="FondoInput" onChange={this.manejarCambio} value={this.state.data.id} >
                             </input>
                         </div>
                                              
@@ -276,20 +230,13 @@ class AdministrarExposiciones extends React.Component {
                             </button>
                         </div>
 
-                        <div className="form-group">
-                            <button className="button is-success mt-2" onClick={this.editarExposicion}>
-                                Editar Exposición
-                            </button>
-                        </div>
+                        
+
+                        
 
 
-                        <div className="form-group">
-                            <button className="button is-success mt-2" onClick={this.eliminarExposicion}>
-                                Eliminar Exposición
-                            </button>
-                        </div>
 
-                                                 
+                         
             
                     </center>
                     </div>
@@ -305,72 +252,15 @@ class AdministrarExposiciones extends React.Component {
     }
 
 
-
-
-    async eliminarExposicion(evento){
-        evento.preventDefault();
-        
-        const continuar = () =>{
-            swal({
-              title: "¡Eliminar!",
-              text: "¡Eliminando Exposición!",
-              icon: "success",                        
-            }).then(function() {
-                window.location = "/AdministrarExposiciones";                            
-            });
-        }
-
-        const detener = () =>{
-            swal({
-              title: "¡Error!",
-              text: "¡No existe la exposición! ¡No es el propietario!",
-              icon: "error",
-              timer: 6000,
-            });
-        }    
-
-        //console.log("respuesta de todo",id_ser3+`/`+this.state.data.id) 
-        
-
-        var respuesta = await fetch(`https://proyecto-meca-cali.herokuapp.com/VirtualExpositions/Delete/`+parseInt(id_ser3)+`/`+parseInt(this.state.data.id), 
-        {
-            method: "DELETE",    
-        });
-
-        //console.log("respuesta de todo",respuesta) 
-                
-        var statusr=respuesta.status;
-
-        //console.log("status",respuesta) 
-                
-          
-        if (statusr===200) {
-            
-            this.setState({
-                data: {
-                    id: "", 
-                    Exposiciones: this.state.data.Exposiciones,  
-                    busqueda: this.state.data.busqueda,
-                    BusquedaExposicion: this.state.data.BusquedaExposicion, 
-                }
-            });            
-            continuar(); 
-        } else {
-            detener();
-        }
-    }
-
-
-
     async observarExposicion(evento){
         evento.preventDefault();
 
         const continuar = () =>{
-            swal({
-                title: "¡Felicitaciones!",
-                text: "¡Ahora podras acceder a esta exposición!",
-                icon: "success",                        
-            }).then(function() {
+                swal({
+                  title: "Hola!",
+                  text: "Ahora podras ver la exposicion "+this.state.data.id+ "",
+                  icon: "success",                        
+                }).then(function() {
                     
                     window.location = "/ExposicionesVirtuales";
                     
@@ -379,59 +269,8 @@ class AdministrarExposiciones extends React.Component {
 
         const detener = () =>{
             swal({
-              title: "¡Error!",
-              text: "¡No existe esa exposición!",
-              icon: "error",
-              timer: 6000,
-            });
-        }  
-
-        var respuesta = await fetch(`https://proyecto-meca-cali.herokuapp.com/VirtualExpositions/Search/id/`+parseInt(this.state.data.id), 
-        {
-            method: "GET",    
-        });   
-
-        var existe;
-        existe= await respuesta.json();   
-
-        if (Object.keys(existe).length === 0) {            
-            detener()
-        }else{
-            cookies.set('idexpo', this.state.data.id, {path: "/"});
-            continuar()
-        }           
-        
-    }
-
-
-
-    async editarExposicion(evento){
-        evento.preventDefault();
-
-        const continuar = () =>{
-            swal({
-                title: "¡Felicitaciones!",
-                text: "¡Ahora podras editar esta exposición!",
-                icon: "success",                        
-            }).then(function() {
-                    window.location = "/EditarExposicionesVirtuales";
-                    
-                });
-        }
-
-        const detener = () =>{
-            swal({
-              title: "¡Error!",
-              text: "¡No existe esa exposición!",
-              icon: "error",
-              timer: 6000,
-            });
-        }  
-
-        const detener2 = () =>{
-            swal({
-              title: "¡Lo siento!",
-              text: "¡No eres propietario de la exposición!",
+              title: "Error",
+              text: "No existe esa exposicion",
               icon: "error",
               timer: 6000,
             });
@@ -448,25 +287,8 @@ class AdministrarExposiciones extends React.Component {
         if (Object.keys(existe).length === 0) {            
             detener()
         }else{
-
-            var respuesta2 = await fetch(`https://proyecto-meca-cali.herokuapp.com//VirtualExpositions/`+parseInt(this.state.data.id)+`/IsOwner/`+id_ser3, 
-            {
-                method: "GET",    
-            }); 
-
-            var statusexpo;
-            statusexpo= respuesta2.status; 
-
-
-            if (statusexpo===200) {
-                //console.log("llego hasta el final")
-                cookies.set('idexpo', this.state.data.id, {path: "/"});
-                continuar()
-
-            }else{
-                detener2()    
-            }
-            
+            cookies.set('idexpo', this.state.data.id, {path: "/"});
+            continuar()
         }           
         
     }
@@ -493,4 +315,4 @@ class AdministrarExposiciones extends React.Component {
     
 }
 
-export default AdministrarExposiciones;
+export default ListarExposicionesVirtuales;
